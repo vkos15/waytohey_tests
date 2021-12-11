@@ -30,7 +30,7 @@ public class GeneratedTests extends TestBase {
     @DisplayName("Page title should have header text")
     void titleTest() {
         step("Open url 'https://waytohey.com/'", () ->
-                open("https://waytohey.com/"));
+                open("/"));
 
         step("Page title should have text 'WayToHey ❤️ Best Free Dating Site & App to find your match'", () -> {
             String expectedTitle = "WayToHey ❤️ Best Free Dating Site & App to find your match";
@@ -45,7 +45,7 @@ public class GeneratedTests extends TestBase {
     @DisplayName("Page console log should not have errors")
     void consoleShouldNotHaveErrorsTest() {
         step("Open url 'https://waytohey.com/'", () ->
-                open("https://waytohey.com/"));
+                open("/"));
 
         step("Console logs should not contain text 'SEVERE'", () -> {
             String consoleLogs = DriverUtils.getConsoleLogs();

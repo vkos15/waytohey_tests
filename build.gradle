@@ -45,6 +45,7 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
+    systemProperty("environment",System.getProperty("environment", "test"))
 
     if (System.getProperty("threads") != null) {
         systemProperties += [
