@@ -20,10 +20,17 @@ public interface WaytoheyConfig extends Config {
     String exist_email();
 
 
+    String user_active_login();
+
+    String user_active_pass();
+
+    String user_wrong_login();
+
+    String user_wrong_pass();
+
     String base_url();
 
-//    @Key("environment")
-//    String environment();
+    String auth_key_user();
 
 
 }

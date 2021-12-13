@@ -4,7 +4,7 @@ import org.aeonbits.owner.ConfigFactory;
 
 public class WaytoheyProject {
 
-    public static WaytoheyConfig config = ConfigFactory.create(WaytoheyConfig.class, System.getProperties());
+    public static WaytoheyConfig configW2H = ConfigFactory.create(WaytoheyConfig.class, System.getProperties());
 
 
 }

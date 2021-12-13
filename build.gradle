@@ -24,6 +24,7 @@ allure {
 dependencies {
     testImplementation(
             "org.aspectj:aspectjweaver:1.9.6",
+            "com.github.javafaker:javafaker:1.0.2",
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "io.rest-assured:rest-assured:4.3.1",
@@ -45,7 +46,7 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
-    systemProperty("environment",System.getProperty("environment", "test"))
+    systemProperty("environment",System.getProperty("environment", "prod"))
 
     if (System.getProperty("threads") != null) {
         systemProperties += [
