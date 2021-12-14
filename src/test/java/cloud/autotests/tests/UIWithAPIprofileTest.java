@@ -1,38 +1,46 @@
 package cloud.autotests.tests;
 
+import cloud.autotests.enums.Orientations;
+import cloud.autotests.pages.LoginWindow;
+import cloud.autotests.pages.ProfilePage;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.url;
 import static io.restassured.RestAssured.given;
 
 public class UIWithAPIprofileTest extends TestBase {
 
+    ProfilePage profilePage = new ProfilePage();
+    LoginWindow loginWindow = new LoginWindow();
+
     @Test
-    void deleteAboutMe() {
-        open(configW2H.auth_key_user());
-        //  Cookie cookies = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf");
-        String cookies = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf").getValue();
+    void profileOrientation() {
 
-        String cookies2 = WebDriverRunner.getWebDriver().manage().getCookieNamed("MLSID").getValue();
+        //  open(configW2H.auth_key_user()); //авторизовались
+        loginWindow.loginByAuthKey(configW2H.auth_key_user());
 
-        System.out.println(cookies);
-        System.out.println(cookies2);
+        //  Cookie cookie_csrf = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf");
+        //получили cookies
+        String cookie_csrf = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf").getValue();
+        String cookie_mlsid = WebDriverRunner.getWebDriver().manage().getCookieNamed("MLSID").getValue();
+
+        //отправляем запрос на указание ориентации в анкете
         given()
                 .contentType("application/x-www-form-urlencoded")
-                .accept("*/*")
-                .cookie("csrf", cookies).and().cookie("MLSID", cookies2)
+                //.accept("*/*")
+                .cookie("csrf", cookie_csrf).and().cookie("MLSID", cookie_mlsid)
                 // .formParams("orientation","b").relaxedHTTPSValidation()
                 .queryParam("action", "save-profile")
-                .body("csrf=" + cookies + "&orientation=u")
+                .body("csrf=" + cookie_csrf + "&orientation=u")
                 .when()
-                .post("https://waytohey.com/andry/edit/aboutsex/")
+                .post(url() + "/edit/aboutsex/")
                 .then()
                 .statusCode(200);
-        // .body("total", is(12));
 
-        // https://waytohey.com/andry/edit/aboutsex/?action=window
+        //удаляем из профиля информацию
+        profilePage.editOrientationInProfile(Orientations.NO_MATTER);
     }
 }
 //curl 'https://waytohey.com/andry/edit/aboutsex/?action=save-profile' \

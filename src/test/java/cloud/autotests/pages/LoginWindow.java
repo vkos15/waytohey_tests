@@ -57,4 +57,10 @@ public class LoginWindow {
         $("#gdpr_popup [value='Accept']").click();
     }
 
+    public void loginByAuthKey(String authKey) {
+        open(authKey);
+        acceptCookies();
+    }
+
+
 }
