@@ -21,7 +21,6 @@ public class UIWithAPIprofileTest extends TestBase {
         //  open(configW2H.auth_key_user()); //авторизовались
         loginWindow.loginByAuthKey(configW2H.auth_key_user());
 
-        //  Cookie cookie_csrf = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf");
         //получили cookies
         String cookie_csrf = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf").getValue();
         String cookie_mlsid = WebDriverRunner.getWebDriver().manage().getCookieNamed("MLSID").getValue();
@@ -38,9 +37,21 @@ public class UIWithAPIprofileTest extends TestBase {
                 .post(url() + "/edit/aboutsex/")
                 .then()
                 .statusCode(200);
-
         //удаляем из профиля информацию
-        profilePage.editOrientationInProfile(Orientations.NO_MATTER);
+        profilePage.editOrientationInProfile(Orientations.NO_MATTER)
+                .checkOrientationInProfile(Orientations.NO_MATTER);
+
+    }
+
+
+    @Test
+    void test(){
+        String a = null;
+      //  String a;
+        String b = new String("");
+        System.out.println(a==b);
+        System.out.println(a);
+        System.out.println(a.equals(b));
     }
 }
 //curl 'https://waytohey.com/andry/edit/aboutsex/?action=save-profile' \

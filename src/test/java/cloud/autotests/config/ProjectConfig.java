@@ -19,9 +19,12 @@ public interface ProjectConfig extends Config {
     @DefaultValue("1920x1080")
     String browserSize();
 
+    @DefaultValue("")
     String browserMobileView();
 
+    @DefaultValue("")
     String remoteDriverUrl();
 
+    @DefaultValue("")
     String videoStorage();
 }

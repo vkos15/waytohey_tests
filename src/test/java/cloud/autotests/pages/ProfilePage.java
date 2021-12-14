@@ -59,10 +59,21 @@ public class ProfilePage {
     }
 
     @Step("Заполняем ориентацию в анкете")
-    public void editOrientationInProfile(Orientations orientation) {
+    public ProfilePage editOrientationInProfile(Orientations orientation) {
         $("#aboutsex a").scrollIntoView(true).click();
         $("#redit_orientation_options").$(byText(orientation.getDescription())).click();
         $("#ieditsubmit").click();
+        return this;
+    }
+
+    @Step("Проверка ориентации, указанной в анкете")
+    public void checkOrientationInProfile(Orientations orientation) {
+        if (!(orientation == Orientations.NO_MATTER))
+        $("#profile_view_aboutsex").shouldHave(text(orientation.getDescription())).shouldBe(visible);
+        else {
+            $("#profile_view_aboutsex").shouldNotBe(visible);
+        }
+
     }
 
 
