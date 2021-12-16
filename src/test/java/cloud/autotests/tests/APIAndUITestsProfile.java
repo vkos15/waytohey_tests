@@ -1,6 +1,7 @@
 package cloud.autotests.tests;
 
 import cloud.autotests.enums.Orientations;
+import cloud.autotests.enums.Religions;
 import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.ProfilePage;
 import com.codeborne.selenide.WebDriverRunner;
@@ -10,7 +11,7 @@ import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static io.restassured.RestAssured.given;
 
-public class UIWithAPIprofileTest extends TestBase {
+public class APIAndUITestsProfile extends TestBase {
 
     ProfilePage profilePage = new ProfilePage();
     LoginWindow loginWindow = new LoginWindow();
@@ -37,11 +38,42 @@ public class UIWithAPIprofileTest extends TestBase {
                 .post(url() + "/edit/aboutsex/")
                 .then()
                 .statusCode(200);
+
         //удаляем из профиля информацию
         profilePage.editOrientationInProfile(Orientations.NO_MATTER)
                 .checkOrientationInProfile(Orientations.NO_MATTER);
 
     }
+
+    @Test
+    void profileDeleteReligion() {
+
+        //  open(configW2H.auth_key_user()); //авторизовались
+        loginWindow.loginByAuthKey(configW2H.auth_key_user());
+
+        //получили cookies
+        String cookie_csrf = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf").getValue();
+        String cookie_mlsid = WebDriverRunner.getWebDriver().manage().getCookieNamed("MLSID").getValue();
+
+        //заполняем религию в анкете
+        given()
+                .contentType("application/x-www-form-urlencoded")
+                //.accept("*/*")
+                .cookie("csrf", cookie_csrf).and().cookie("MLSID", cookie_mlsid)
+                // .formParams("orientation","b").relaxedHTTPSValidation()
+                .queryParam("action", "save-profile")
+                .body("csrf=" + cookie_csrf + "&religion=a")
+                .when()
+                .post(url() + "/edit/type/")
+                .then()
+                .statusCode(200);
+
+        //удаляем из профиля информацию о религии
+    //    profilePage.editReligionInProfile(Religions.NO_MATTER)
+        //        .checkReligionInProfile(Religions.NO_MATTER);
+
+    }
+
 
 
     @Test
@@ -51,7 +83,7 @@ public class UIWithAPIprofileTest extends TestBase {
         String b = new String("");
         System.out.println(a==b);
         System.out.println(a);
-        System.out.println(a.equals(b));
+        System.out.println(b.equals(a));
     }
 }
 //curl 'https://waytohey.com/andry/edit/aboutsex/?action=save-profile' \

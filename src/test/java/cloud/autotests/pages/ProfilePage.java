@@ -3,6 +3,7 @@ package cloud.autotests.pages;
 
 import cloud.autotests.enums.Interests;
 import cloud.autotests.enums.Orientations;
+import cloud.autotests.enums.Religions;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
@@ -73,8 +74,29 @@ public class ProfilePage {
         else {
             $("#profile_view_aboutsex").shouldNotBe(visible);
         }
-
     }
+
+    @Step("Указываем религию в анкете")
+    public ProfilePage editReligionInProfile(Religions religion) {
+        $("#type a").scrollIntoView(true).click();
+        $("#redit_religion_options").$(byText(religion.getDescription())).click();
+        $("#ieditsubmit").click();
+        return this;
+    }
+
+    @Step("Указываем религию в анкете")
+    public ProfilePage checkReligionInProfile(Religions religion) {
+        if (!(religion == Religions.NO_MATTER))
+            $("#profile_view_type").shouldHave(text("religion"))
+                    .shouldHave(text(religion.getDescription()))
+                    .shouldBe(visible);
+         else if  ($("#profile_view_type").isDisplayed()) {
+             $("#profile_view_type").shouldNotHave(text("religion"));
+        }
+        return this;
+    }
+
+
 
 
 }
