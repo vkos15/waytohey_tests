@@ -5,8 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class LoginWindow {
 
@@ -49,18 +48,18 @@ public class LoginWindow {
         this.login.setValue(login);
         this.password.setValue(password);
         submitLogin.click();
-        acceptCookies();
+
     }
 
-    @Step("Принять Cookies")
-    void acceptCookies() {
-        $("#gdpr_popup [value='Accept']").click();
-    }
 
+
+    @Step("Логин по authKey")
     public void loginByAuthKey(String authKey) {
         open(authKey);
-        acceptCookies();
+
     }
+
+
 
 
 }

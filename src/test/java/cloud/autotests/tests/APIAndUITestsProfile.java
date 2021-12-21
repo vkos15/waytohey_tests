@@ -42,13 +42,11 @@ public class APIAndUITestsProfile extends TestBase {
         //удаляем из профиля информацию
         profilePage.editOrientationInProfile(Orientations.NO_MATTER)
                 .checkOrientationInProfile(Orientations.NO_MATTER);
-
     }
 
     @Test
     void profileDeleteReligion() {
 
-        //  open(configW2H.auth_key_user()); //авторизовались
         loginWindow.loginByAuthKey(configW2H.auth_key_user());
 
         //получили cookies
@@ -69,8 +67,8 @@ public class APIAndUITestsProfile extends TestBase {
                 .statusCode(200);
 
         //удаляем из профиля информацию о религии
-    //    profilePage.editReligionInProfile(Religions.NO_MATTER)
-        //        .checkReligionInProfile(Religions.NO_MATTER);
+        profilePage.editReligionInProfile(Religions.NO_MATTER)
+                .checkReligionInProfile(Religions.NO_MATTER);
 
     }
 

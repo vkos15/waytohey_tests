@@ -5,14 +5,17 @@ import cloud.autotests.enums.Interests;
 import cloud.autotests.enums.Orientations;
 import cloud.autotests.enums.Religions;
 import io.qameta.allure.Step;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
+
 
 public class ProfilePage {
+
+
 
     @Step("Указываем статус в анкете")
     public ProfilePage changeStatus(String status) {
@@ -31,7 +34,6 @@ public class ProfilePage {
         $("#aboutme a").scrollIntoView(true).click();
         $("textarea[name='about']").shouldBe(visible).setValue(aboutMe);
         $("#ieditsubmit").click();
-
         return this;
     }
 
@@ -94,6 +96,14 @@ public class ProfilePage {
              $("#profile_view_type").shouldNotHave(text("religion"));
         }
         return this;
+    }
+
+    @Step("Написать в чужой анкете")
+    public MessagePage openMessageFromProfile(String userLogin) {
+        System.out.println(userLogin);
+        open(userLogin);
+     $("#pmess").click();
+        return new MessagePage();
     }
 
 

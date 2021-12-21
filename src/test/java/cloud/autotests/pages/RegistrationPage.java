@@ -86,5 +86,19 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Проверяем, что плашка Принять Cookies не отображается на странице ")
+    public void checkGDPRisNotVisible() {
+        $("#gdpr_popup").shouldNotBe(visible);
+    }
+
+    public void checkGDPRisVisible() {
+        $("#gdpr_popup").shouldBe(visible);
+    }
+
+    @Step("Принять Cookies")
+    public void acceptCookies() {
+        $("#gdpr_popup [value='Accept']").click();
+    }
+
 
 }
