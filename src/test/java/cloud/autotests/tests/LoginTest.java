@@ -37,7 +37,6 @@ public class LoginTest extends TestBase {
     @Test
     void emptyLoginTest() {
         loginWindow.openLoginWindow()
-                .typeLogin("")
                 .typePassword(userWrongLogin.getPass())
                 .submitLoginForm();
         loginWindow.checkErrorLoginMessage("Please enter your login");
@@ -47,9 +46,8 @@ public class LoginTest extends TestBase {
     void emptyPassTest() {
         loginWindow.openLoginWindow()
                 .typeLogin(userWrongLogin.getLogin())
-                .typePassword(userWrongLogin.getPass())
                 .submitLoginForm();
-        loginWindow.checkErrorLoginMessage("Please enter your login");
+        loginWindow.checkErrorPasswordMessage("Enter the password");
     }
 
     @Test

@@ -5,7 +5,8 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
 public class LoginWindow {
 
@@ -42,13 +43,18 @@ public class LoginWindow {
         return this;
     }
 
+    @Step("Проверяем сообщение об ошибке")
+    public LoginWindow checkErrorPasswordMessage(String error) {
+        $("#input_pass+i.error_message").shouldBe(visible).shouldHave(text(error));
+        return this;
+    }
+
     @Step("Входим по логину {login} и паролю {password}")
     public void login(String login, String password) {
         open("https://waytohey.com/#login");
         this.login.setValue(login);
         this.password.setValue(password);
         submitLogin.click();
-
     }
 
 
