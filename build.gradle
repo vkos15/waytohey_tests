@@ -66,5 +66,13 @@ tasks.withType(Test) {
             exceptionFormat "short"
         }
     }
+
+}
+
+
+task parametrized_tests(type: Test) {
+    useJUnitPlatform {
+        includeTags 'parametrized_tests'
+    }
 }
 
