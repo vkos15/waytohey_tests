@@ -5,6 +5,7 @@ import cloud.autotests.enums.Interests;
 import cloud.autotests.enums.Orientations;
 import cloud.autotests.enums.Religions;
 import io.qameta.allure.Step;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -39,8 +40,8 @@ public class ProfilePage {
 
     @Step("Проверяем текст в разделе Обо мне")
     public void checkAboutMe(String aboutMe) {
-        $("#profile_view_aboutme").shouldHave(text(aboutMe)).shouldBe(visible);
-
+        $("#profile_view_aboutme").scrollIntoView(true)
+                .shouldHave(text(aboutMe)).shouldBe(visible);
     }
 
     @Step("Выбираем интерес в анкете")
