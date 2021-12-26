@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class RegistrationPage {
     private SelenideElement textInformation = $("#staged_reg_partner");
     private SelenideElement imageLogo = $("#form_logo img");
-    private final static String TEXT_ON_MAIN_PAGE = "Irish social network for connecting people Find new friends and relationship";
+    private final static String TEXT_ON_MAIN_PAGE = "Free dating website for connecting singles";
 
     @Step("Открываем главную страницу")
     public RegistrationPage openMainPage() {
