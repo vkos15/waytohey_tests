@@ -1,12 +1,10 @@
 package cloud.autotests.tests;
 
-import cloud.autotests.enums.Interests;
 import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.MessagePage;
-import cloud.autotests.pages.ProfilePage;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.*;
-import java.util.stream.Stream;
+import org.junit.jupiter.params.provider.CsvSource;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static cloud.autotests.testdata.TestData.userForParamTest;
 
@@ -21,7 +19,7 @@ public class ParametrizedTestsContactList extends TestBase {
             "ella"
     })
 
-    @ParameterizedTest(name = "Search {0} in contact list")
+    // @ParameterizedTest(name = "Search {0} in contact list")
     public void testSearchInContactList(String searchString) {
         loginPage.login(userForParamTest.getLogin(), userForParamTest.getPass());
         messagePage.openMessageWindow();

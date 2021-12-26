@@ -55,6 +55,7 @@ public class LoginWindow {
         this.login.shouldBe(visible).setValue(login);
         this.password.setValue(password);
         submitLogin.click();
+        $("#ivisitcard_info").shouldBe(visible);
     }
 
 
