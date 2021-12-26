@@ -1,1 +1,1 @@
-# waytohey_tests
+# Проект автотестов для waytohey.com
