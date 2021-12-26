@@ -72,6 +72,15 @@ allure serve build/allure-results
 
 ![Видео прохождения теста](https://github.com/vkos15/waytohey_tests/blob/main/images/test_profile_video.gif)
 
+## Интеграция с Allure TestOps ##
+
+![Allure TestOps](https://github.com/vkos15/waytohey_tests/blob/main/images/Allure%20TestOps.png)
+
+## Интеграция с Jira ##
+
+Доступен список тест-кейсов, а так же приложен результат запуска автотестов 
+
+![Jira](https://github.com/vkos15/waytohey_tests/blob/main/images/WayToHey%20tests%20Jira%20.png)
 
 
 # Уведомления о прохождении автотестов: # 
