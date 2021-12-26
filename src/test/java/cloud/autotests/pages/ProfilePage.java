@@ -46,7 +46,7 @@ public class ProfilePage {
 
     @Step("Выбираем интерес в анкете")
     public ProfilePage selectInterest(Interests interest) {
-        $("#interest a").scrollIntoView(true).click();
+        $("#interest a").scrollIntoView(true).shouldBe(visible).click();
         $("#allowed_interests").shouldBe(visible).$(byText(interest.getDescription())).click();
         $(".interest_confirm").click();
         return this;
