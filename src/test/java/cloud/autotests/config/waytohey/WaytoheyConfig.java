@@ -33,8 +33,14 @@ public interface WaytoheyConfig extends Config {
     String auth_key_user();
 
     String user_parametrize_test_login();
+
     String user_parametrize_test_pass();
+
     String user_chat_login();
+
+    String auth_login();
+
+    String auth_pass();
 
 
 }

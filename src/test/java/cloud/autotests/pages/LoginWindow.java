@@ -3,6 +3,7 @@ package cloud.autotests.pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
+import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -51,7 +52,7 @@ public class LoginWindow {
 
     @Step("Входим под пользователем {login} ")
     public void login(String login, String password) {
-        open("https://waytohey.com/#login");
+        open("#login");
         this.login.shouldBe(visible).setValue(login);
         this.password.setValue(password);
         submitLogin.click();
@@ -61,8 +62,9 @@ public class LoginWindow {
 
     @Step("Логин по authKey")
     public void loginByAuthKey(String authKey) {
-        open(authKey);
-
+        if (!System.getProperty("environment").equals("prod"))
+            open(authKey, "", configW2H.auth_login(), configW2H.auth_pass());
+        else open(authKey);
     }
 
 
