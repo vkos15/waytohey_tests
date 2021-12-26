@@ -33,7 +33,7 @@ public class ProfilePage {
     @Step("Заполняем раздел Обо мне")
     public ProfilePage changeAboutMe(String aboutMe) {
         $("#aboutme a").scrollIntoView(true).click();
-        $("textarea[name='about']").shouldBe(visible).setValue(aboutMe);
+        $("textarea[name='about']").scrollIntoView(true).shouldBe(visible).setValue(aboutMe);
         $("#ieditsubmit").click();
         return this;
     }
