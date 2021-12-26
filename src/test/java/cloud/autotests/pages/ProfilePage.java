@@ -22,6 +22,7 @@ public class ProfilePage {
     public ProfilePage changeStatus(String status) {
         $("#mood a").click();
         $("#mood_cont").$(withText(status)).click();
+        $("#mood_cont").shouldNotBe(visible);
         return this;
     }
 
