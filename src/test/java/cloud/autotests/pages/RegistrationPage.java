@@ -14,7 +14,8 @@ import static com.codeborne.selenide.Selenide.open;
 public class RegistrationPage {
     private SelenideElement textInformation = $("#staged_reg_partner");
     private SelenideElement imageLogo = $("#form_logo img");
-    private final static String TEXT_ON_MAIN_PAGE = "Free dating website for connecting singles";
+    private final static String TEXT_ON_MAIN_PAGE_PROD = "Free dating website for connecting singles";
+    private final static String TEXT_ON_MAIN_PAGE_TEST = "Irish social network for connecting people";
 
     @Step("Открываем главную страницу")
     public RegistrationPage openMainPage() {
@@ -25,7 +26,9 @@ public class RegistrationPage {
 
     @Step("Проверяем текст на главной")
     public RegistrationPage checkTextonMainPage() {
-        textInformation.shouldHave(Condition.text(TEXT_ON_MAIN_PAGE));
+        if (System.getProperty("environment").equals("prod"))
+            textInformation.shouldHave(Condition.text(TEXT_ON_MAIN_PAGE_PROD));
+        else textInformation.shouldHave(Condition.text(TEXT_ON_MAIN_PAGE_TEST));
         return this;
 
     }

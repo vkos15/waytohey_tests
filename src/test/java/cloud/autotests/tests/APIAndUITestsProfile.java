@@ -19,7 +19,7 @@ public class APIAndUITestsProfile extends TestBase {
     @Test
     void profileOrientation() {
 
-        //  open(configW2H.auth_key_user()); //авторизовались
+        //авторизовались
         loginWindow.loginByAuthKey(configW2H.auth_key_user());
 
         //получили cookies

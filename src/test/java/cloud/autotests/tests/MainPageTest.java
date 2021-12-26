@@ -8,7 +8,6 @@ import static cloud.autotests.testdata.TestData.emailRandom;
 import static cloud.autotests.testdata.TestData.nameRandom;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.sleep;
 
 
 public class MainPageTest extends TestBase {
@@ -52,11 +51,7 @@ public class MainPageTest extends TestBase {
                 .fillName(nameRandom)
                 .fillEmail(emailRandom)
                 .clickSubmit();
-        sleep(5000);
-        //Убрать капчу
-        // regPage.checkErrorEmail("This email is already in use");
-        // $("#mail_dup_login").shouldHave(text("Sign in to your profile?"));
-
+        // Решить насчет капчи
     }
 
 
