@@ -49,14 +49,14 @@ public class LoginWindow {
         return this;
     }
 
-    @Step("Входим по логину {login} и паролю {password}")
+    @Step("Входим под пользователем {login} ")
     public void login(String login, String password) {
         open("https://waytohey.com/#login");
-        this.login.setValue(login);
+        this.login.shouldBe(visible).setValue(login);
         this.password.setValue(password);
         submitLogin.click();
+        $("#ivisitcard_info").shouldBe(visible);
     }
-
 
 
     @Step("Логин по authKey")

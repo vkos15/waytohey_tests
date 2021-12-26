@@ -20,6 +20,7 @@ public class Cash {
         $("#cash_window").shouldNotBe(visible);
     }
 
+    @Step("Проверка, что кошелек закрывается при выборе в меню Закрыть")
     public void closeByMenu() {
         $("#cash_window .top_settings img").click();
         $("#cmenu_cash a.close").click();

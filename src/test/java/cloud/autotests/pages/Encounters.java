@@ -15,8 +15,8 @@ public class Encounters {
 
     @Step("Проверка контента на странице симпатий")
     public Encounters checkContent() {
-        $("#sym_photo_cont").shouldBe(visible);
         $("#gallery_block").shouldBe(visible);
+        $("div.user-menu-header.no-auth").shouldBe(visible);
         return this;
     }
 
