@@ -107,8 +107,4 @@ public class ProfilePage {
      $("#pmess").click();
         return new MessagePage();
     }
-
-
-
-
 }

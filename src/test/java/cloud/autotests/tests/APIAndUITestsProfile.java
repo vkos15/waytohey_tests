@@ -69,8 +69,5 @@ public class APIAndUITestsProfile extends TestBase {
         //удаляем из профиля информацию о религии
         profilePage.editReligionInProfile(Religions.NO_MATTER)
                 .checkReligionInProfile(Religions.NO_MATTER);
-
     }
-
-
 }

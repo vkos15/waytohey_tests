@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationPage {
+
     private SelenideElement textInformation = $("#staged_reg_partner");
     private SelenideElement imageLogo = $("#form_logo img");
     private final static String TEXT_ON_MAIN_PAGE_PROD = "Free dating website for connecting singles";
@@ -21,7 +22,6 @@ public class RegistrationPage {
     public RegistrationPage openMainPage() {
         open("");
         return this;
-
     }
 
     @Step("Проверяем текст на главной")
@@ -30,34 +30,29 @@ public class RegistrationPage {
             textInformation.shouldHave(Condition.text(TEXT_ON_MAIN_PAGE_PROD));
         else textInformation.shouldHave(Condition.text(TEXT_ON_MAIN_PAGE_TEST));
         return this;
-
     }
 
     @Step("Проверяем наличие логотипа ")
     public RegistrationPage checkLogoOnMainPage() {
         imageLogo.shouldBe(Condition.visible).shouldHave(Condition.attributeMatching("src", ".*.svg"));
         return this;
-
     }
 
     @Step("Указываем имя ")
     public RegistrationPage fillName(String name) {
         $("#input_name").setValue(name);
         return this;
-
     }
 
     @Step("Указываем email ")
     public RegistrationPage fillEmail(String email) {
         $("#input_email").setValue(email);
         return this;
-
     }
 
     @Step("Зарегистрироваться")
     public void clickSubmit() {
         $(byValue("Sign up")).click();
-
     }
 
     @Step("Проверяем ошибку в имени")
@@ -94,6 +89,7 @@ public class RegistrationPage {
         $("#gdpr_popup").shouldNotBe(visible);
     }
 
+    @Step("Проверяем, что плашка Принять Cookies отображается на странице ")
     public void checkGDPRisVisible() {
         $("#gdpr_popup").shouldBe(visible);
     }

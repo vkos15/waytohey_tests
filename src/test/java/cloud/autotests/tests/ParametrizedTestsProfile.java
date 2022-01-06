@@ -15,10 +15,9 @@ import static cloud.autotests.testdata.TestData.userForParamTest;
 
 
 public class ParametrizedTestsProfile extends TestBase {
+
     LoginWindow loginPage = new LoginWindow();
-
     ProfilePage profilePage = new ProfilePage();
-
 
     @Tag("parametrized_tests")
     @EnumSource(Interests.class)

@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
 import static cloud.autotests.testdata.TestData.userLoginChatWith;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
 
 public class MessageTests extends TestBase {
 
@@ -21,7 +19,4 @@ public class MessageTests extends TestBase {
              profilePage.openMessageFromProfile(userLoginChatWith)
                      .checkThatChanOpen(userLoginChatWith);
     }
-
-
-
 }

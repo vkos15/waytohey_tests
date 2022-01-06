@@ -54,5 +54,4 @@ public class MainPageTest extends TestBase {
         // Решить насчет капчи
     }
 
-
 }

@@ -24,6 +24,4 @@ public class CashTests extends TestBase {
         cash.openCash();
         cash.closeByMenu();
     }
-
-
 }

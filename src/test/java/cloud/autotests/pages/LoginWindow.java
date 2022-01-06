@@ -59,15 +59,10 @@ public class LoginWindow {
         $("#ivisitcard_info").shouldBe(visible);
     }
 
-
     @Step("Логин по authKey")
     public void loginByAuthKey(String authKey) {
         if (!System.getProperty("environment").equals("prod"))
             open(authKey, "", configW2H.auth_login(), configW2H.auth_pass());
         else open(authKey);
     }
-
-
-
-
 }

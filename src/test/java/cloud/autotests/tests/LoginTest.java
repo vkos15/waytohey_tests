@@ -61,7 +61,5 @@ public class LoginTest extends TestBase {
                 .submitLoginForm();
         //проверили что что после авторизации плашка GDPR не отображается
         regPage.checkGDPRisNotVisible();
-
     }
-
 }

@@ -1,7 +1,8 @@
 package cloud.autotests.pages;
 
 import static com.codeborne.selenide.CollectionCondition.size;
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.attributeMatching;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -26,6 +27,6 @@ public class MessagePage {
 
     public void checkThatChanOpen(String userLogin) {
         //проверили что в заголовке ссылка на юзера, с которым открыт диалог
-        $("#chat_top .top_title").shouldHave(attributeMatching("href",".*"+userLogin+".*"));
+        $("#chat_top .top_title").shouldHave(attributeMatching("href", ".*" + userLogin + ".*"));
     }
 }
