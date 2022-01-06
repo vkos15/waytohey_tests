@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
 import static cloud.autotests.testdata.TestData.emailRandom;
 import static cloud.autotests.testdata.TestData.nameRandom;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
 
 
 public class MainPageTest extends TestBase {
@@ -41,8 +39,7 @@ public class MainPageTest extends TestBase {
                 .fillEmail(configW2H.exist_email())
                 .clickSubmit();
         regPage.checkErrorEmail("This email is already in use");
-        $("#mail_dup_login").shouldHave(text("Sign in to your profile?"));
-
+        regPage.checkButtonExistEmail();
     }
 
     @Test

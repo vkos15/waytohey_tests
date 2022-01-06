@@ -73,6 +73,13 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Проверяем, что появилась кнопка Желаете войти в эту анкету? при указании существующего емаил")
+    public RegistrationPage checkButtonExistEmail() {
+        $("#mail_dup_login").shouldHave(text("Sign in to your profile?"));
+        return this;
+    }
+
+
     @Step("Открываем пользовательское соглашение")
     public RegistrationPage openTermsService() {
         $(byText("Terms of Service")).click();
@@ -98,6 +105,5 @@ public class RegistrationPage {
     public void acceptCookies() {
         $("#gdpr_popup [value='Accept']").click();
     }
-
 
 }
