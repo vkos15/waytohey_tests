@@ -7,7 +7,7 @@ import cloud.autotests.pages.ProfilePage;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Test;
 
-import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
+import static cloud.autotests.config.WaytoheyProject.configW2H;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static io.restassured.RestAssured.given;
 

@@ -3,7 +3,7 @@ package cloud.autotests.pages;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
-import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
+import static cloud.autotests.config.WaytoheyProject.configW2H;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
