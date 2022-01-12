@@ -15,8 +15,8 @@ public class MessageTests extends TestBase {
     @Test
     //Проверяем, что окно сообщений открывается из профиля
     void openWindowMessageFromProfile() {
-        loginWindow.loginByAuthKey(configW2H.auth_key_user());
-             profilePage.openMessageFromProfile(userLoginChatWith)
-                     .checkThatChanOpen(userLoginChatWith);
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
+        profilePage.openMessageFromProfile(userLoginChatWith)
+                .checkThatChanOpen(userLoginChatWith);
     }
 }

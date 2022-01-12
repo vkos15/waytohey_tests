@@ -15,14 +15,14 @@ public class CashTests extends TestBase {
 
     @Test
     void closeCashByBack() {
-        loginWindow.loginByAuthKey(configW2H.auth_key_user());
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
         cash.openCash();
         cash.closeByBack();
     }
 
     @Test
     void PaymentHistory() {
-        loginWindow.loginByAuthKey(configW2H.auth_key_user());
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
         cash.openCash()
                 .openPaymentHistory();
         historyPage.checkHeaderPaymentHistory()

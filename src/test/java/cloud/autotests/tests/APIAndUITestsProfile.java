@@ -20,7 +20,7 @@ public class APIAndUITestsProfile extends TestBase {
     void profileOrientation() {
 
         //авторизовались
-        loginWindow.loginByAuthKey(configW2H.auth_key_user());
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
 
         //получили cookies
         String cookie_csrf = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf").getValue();
@@ -47,7 +47,7 @@ public class APIAndUITestsProfile extends TestBase {
     @Test
     void profileDeleteReligion() {
 
-        loginWindow.loginByAuthKey(configW2H.auth_key_user());
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
 
         //получили cookies
         String cookie_csrf = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf").getValue();

@@ -15,7 +15,7 @@ public class DriverSettings {
         Configuration.browser = Project.config.browser();
         Configuration.browserVersion = Project.config.browserVersion();
         Configuration.browserSize = Project.config.browserSize();
-        Configuration.baseUrl = WaytoheyProject.configW2H.base_url();
+        Configuration.baseUrl = WaytoheyProject.configW2H.baseUrl();
 
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
