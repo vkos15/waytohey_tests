@@ -17,7 +17,6 @@ https://jenkins.autotests.cloud/job/08-vkulikova15-waytohey-tests/
 - **threads** - количество потоков
 - **environment** - выбор окружения, на котором будут запускаться тесты (prod/test)
 
-![Сборка в Jenkins](https://github.com/vkos15/waytohey_tests/blob/main/images/Jenkins-1.png)
 
 # Пример запуска тестов из терминала: #
 
@@ -39,6 +38,9 @@ gradle clean test
 -DvideoStorage=https://${REMOTE_DRIVER_URL}/video/
 -Dthreads=${THREADS}
 ```
+
+![Сборка в Jenkins](https://github.com/vkos15/waytohey_tests/blob/main/images/Jenkins-1.png)
+
 **Для запуска так же необходимы тестовые данные:**  
 
 Для хранения используются Property-файлы prod.properties и test.properties, нужные данные выбираются в зависимости
@@ -55,6 +57,7 @@ user_parametrize_test_login=
 user_parametrize_test_pass=
 user_chat_login=
 ```
+
 
 # Реализованы тесты на следующие разделы сайта:
 
