@@ -1,4 +1,4 @@
-package cloud.autotests.pages;
+package cloud.autotests.models;
 
 public class User {
 
