@@ -1,6 +1,6 @@
 package cloud.autotests.testdata;
 
-import cloud.autotests.pages.User;
+import cloud.autotests.models.User;
 import com.github.javafaker.Faker;
 
 import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
