@@ -36,7 +36,7 @@ public class MainPageTest extends TestBase {
     void regWithExistEmail() {
         regPage.openMainPage()
                 .fillName("test")
-                .fillEmail(configW2H.exist_email())
+                .fillEmail(configW2H.existEmail())
                 .clickSubmit();
         regPage.checkErrorEmail("This email is already in use");
         regPage.checkButtonExistEmail();

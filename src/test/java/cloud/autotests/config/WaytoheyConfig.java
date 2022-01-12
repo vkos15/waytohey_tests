@@ -11,28 +11,40 @@ import org.aeonbits.owner.Config;
 public interface WaytoheyConfig extends Config {
 
     @DefaultValue("dfg@ml.rootkid.ru")
-    String exist_email();
+    @Key("exist_email")
+    String existEmail();
 
-    String user_active_login();
+    @Key("user_active_login")
+    String userActiveLogin();
 
-    String user_active_pass();
+    @Key("user_active_pass")
+    String userActivePass();
 
-    String user_wrong_login();
+    @Key("user_wrong_login")
+    String userWrongLogin();
 
-    String user_wrong_pass();
+    @Key("user_wrong_pass")
+    String userWrongPass();
 
-    String base_url();
+    @Key("base_url")
+    String baseUrl();
 
-    String auth_key_user();
+    @Key("auth_key_user")
+    String authKeyUser();
 
-    String user_parametrize_test_login();
+    @Key("user_parametrize_test_login")
+    String userParametrizeTestLogin();
 
-    String user_parametrize_test_pass();
+    @Key("user_parametrize_test_pass")
+    String userParametrizeTestPass();
 
-    String user_chat_login();
+    @Key("user_chat_login")
+    String userChatLogin();
 
-    String auth_login();
+    @Key("auth_login")
+    String authLogin();
 
-    String auth_pass();
+    @Key("auth_pass")
+    String authPass();
 
 }

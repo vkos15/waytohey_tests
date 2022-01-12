@@ -62,7 +62,7 @@ public class LoginWindow {
     @Step("Логин по authKey")
     public void loginByAuthKey(String authKey) {
         if (!System.getProperty("environment").equals("prod"))
-            open(authKey, "", configW2H.auth_login(), configW2H.auth_pass());
+            open(authKey, "", configW2H.authLogin(), configW2H.authPass());
         else open(authKey);
     }
 }
