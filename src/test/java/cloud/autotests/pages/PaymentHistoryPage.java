@@ -24,5 +24,4 @@ public class PaymentHistoryPage {
         $("a.close_window").click();
     }
 
-
 }

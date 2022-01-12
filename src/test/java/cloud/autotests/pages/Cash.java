@@ -35,5 +35,4 @@ public class Cash {
         return new PaymentHistoryPage();
     }
 
-
 }

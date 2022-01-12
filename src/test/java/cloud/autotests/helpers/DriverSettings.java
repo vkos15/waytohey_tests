@@ -1,7 +1,7 @@
 package cloud.autotests.helpers;
 
 import cloud.autotests.config.Project;
-import cloud.autotests.config.waytohey.WaytoheyProject;
+import cloud.autotests.config.WaytoheyProject;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -16,6 +16,7 @@ public class DriverSettings {
         Configuration.browserVersion = Project.config.browserVersion();
         Configuration.browserSize = Project.config.browserSize();
         Configuration.baseUrl = WaytoheyProject.configW2H.base_url();
+
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         ChromeOptions chromeOptions = new ChromeOptions();

@@ -16,8 +16,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class ProfilePage {
 
-
-
     @Step("Указываем статус в анкете")
     public ProfilePage changeStatus(String status) {
         $("#mood a").click();

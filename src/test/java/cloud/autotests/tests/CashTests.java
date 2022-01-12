@@ -5,7 +5,7 @@ import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.PaymentHistoryPage;
 import org.junit.jupiter.api.Test;
 
-import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
+import static cloud.autotests.config.WaytoheyProject.configW2H;
 
 public class CashTests extends TestBase {
 

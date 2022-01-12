@@ -1,4 +1,4 @@
-package cloud.autotests.config.waytohey;
+package cloud.autotests.config;
 
 import org.aeonbits.owner.Config;
 
@@ -10,15 +10,8 @@ import org.aeonbits.owner.Config;
 
 public interface WaytoheyConfig extends Config {
 
-
-    String login_correct();
-
-
-    String password_correct();
-
     @DefaultValue("dfg@ml.rootkid.ru")
     String exist_email();
-
 
     String user_active_login();
 
@@ -41,6 +34,5 @@ public interface WaytoheyConfig extends Config {
     String auth_login();
 
     String auth_pass();
-
 
 }

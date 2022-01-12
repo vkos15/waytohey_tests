@@ -3,7 +3,7 @@ package cloud.autotests.tests;
 import cloud.autotests.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
-import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
+import static cloud.autotests.config.WaytoheyProject.configW2H;
 import static cloud.autotests.testdata.TestData.emailRandom;
 import static cloud.autotests.testdata.TestData.nameRandom;
 

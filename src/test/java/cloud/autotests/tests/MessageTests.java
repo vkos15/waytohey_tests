@@ -4,7 +4,7 @@ import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.ProfilePage;
 import org.junit.jupiter.api.Test;
 
-import static cloud.autotests.config.waytohey.WaytoheyProject.configW2H;
+import static cloud.autotests.config.WaytoheyProject.configW2H;
 import static cloud.autotests.testdata.TestData.userLoginChatWith;
 
 public class MessageTests extends TestBase {
