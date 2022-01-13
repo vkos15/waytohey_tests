@@ -18,7 +18,7 @@ public class ProfilePage {
 
     @Step("Указываем статус в анкете")
     public ProfilePage changeStatus(String status) {
-        $("#mood a").click();
+        $("#mood a").scrollIntoView(true).click();
         $("#mood_cont").$(withText(status)).click();
         $("#mood_cont").shouldNotBe(visible);
         return this;
@@ -26,7 +26,7 @@ public class ProfilePage {
 
     @Step("Проверка статуса в анкете")
     public void checkStatus(String status) {
-        $("#profile_view_mood").shouldHave(text(status)).shouldBe(visible);
+        $("#profile_view_mood").scrollIntoView(true).shouldHave(text(status)).shouldBe(visible);
     }
 
     @Step("Заполняем раздел Обо мне")
