@@ -1,6 +1,7 @@
 package cloud.autotests.tests;
 
 import cloud.autotests.pages.Cash;
+import cloud.autotests.pages.HowCanISpendCoinsPage;
 import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.PaymentHistoryPage;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ public class CashTests extends TestBase {
     LoginWindow loginWindow = new LoginWindow();
     Cash cash = new Cash();
     PaymentHistoryPage historyPage = new PaymentHistoryPage();
+    HowCanISpendCoinsPage coinsPage = new HowCanISpendCoinsPage();
 
     @Test
     void closeCashByBack() {
@@ -21,11 +23,19 @@ public class CashTests extends TestBase {
     }
 
     @Test
-    void PaymentHistory() {
+    void paymentHistoryTest() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
         cash.openCash()
                 .openPaymentHistory();
         historyPage.checkHeaderPaymentHistory()
                 .checkMoneyFoRegInPaymentHistory();
+    }
+
+    @Test
+    void checkWindowWithInfoAboutCoins() {
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
+        cash.openCash()
+                .openInfoAboutCoins()
+                .checkHeaderWindowAboutCoins();
     }
 }

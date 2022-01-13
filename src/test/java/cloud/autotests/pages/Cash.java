@@ -31,8 +31,19 @@ public class Cash {
     @Step("Открыть историю платежей")
     public PaymentHistoryPage openPaymentHistory() {
         $("#cash_window .top_settings img").click();
-        $("#cmenu_cash").$(byText("Payment History")).shouldBe(visible).click();
+        //выглядит странно, но без этих скроллов и проверок на видимость меню иногда кликает пока меню не видимо
+        $("#cmenu_cash").shouldBe(visible);
+        $("#cmenu_cash").$(byText("Payment History")).scrollIntoView(true).shouldBe(visible).click();
         return new PaymentHistoryPage();
     }
+
+    @Step("Открыть раздел Зачем нужны монетки")
+    public HowCanISpendCoinsPage openInfoAboutCoins() {
+        $("#cash_window .top_settings img").click();
+        $("#cmenu_cash").shouldBe(visible);
+        $("#cmenu_cash").$(byText("How can I spend coins?")).scrollIntoView(true).shouldBe(visible).click();
+        return new HowCanISpendCoinsPage();
+    }
+
 
 }
