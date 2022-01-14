@@ -12,6 +12,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class ProfilePage {
@@ -45,7 +46,8 @@ public class ProfilePage {
 
     @Step("Выбираем интерес в анкете")
     public ProfilePage selectInterest(Interests interest) {
-        $("#interest a").scrollIntoView(true).shouldBe(visible).click();
+        $("#interest").scrollIntoView(true).shouldHave(text("Interests"));
+        $("#interest a img").shouldBe(visible).click();
         $("#allowed_interests").shouldBe(visible).$(byText(interest.getDescription())).click();
         $(".interest_confirm").click();
         return this;
@@ -102,7 +104,19 @@ public class ProfilePage {
     public MessagePage openMessageFromProfile(String userLogin) {
         System.out.println(userLogin);
         open(userLogin);
-     $("#pmess").click();
+        $("#pmess").click();
         return new MessagePage();
     }
+
+    @Step("Проверка времени, когда юзер был онлайн последний раз")
+    public ProfilePage getTimeWhenUserWasOnline(String userLogin, String expectedTime) {
+        open(userLogin);
+        $("#visitcard_info .user_onoff_status").click();
+        //только таким способом удается уловить всплывающее на 2 сек сообщение, получаем из него
+        //текст, затем проверяем с ожидаемым
+        String visibleTime = $("#show_info").shouldBe(visible).getOwnText();
+        assertThat(visibleTime).isEqualTo(expectedTime);
+        return this;
+    }
+
 }

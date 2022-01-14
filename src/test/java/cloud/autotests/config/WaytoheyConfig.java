@@ -47,4 +47,10 @@ public interface WaytoheyConfig extends Config {
     @Key("auth_pass")
     String authPass();
 
+    @Key("user_forever_offline")
+    String userForeverOffline();
+
+    @Key("user_forever_offline_time")
+    String userForeverOfflineTime();
+
 }

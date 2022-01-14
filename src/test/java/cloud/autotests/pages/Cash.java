@@ -4,8 +4,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class Cash {
 
@@ -32,16 +31,19 @@ public class Cash {
     public PaymentHistoryPage openPaymentHistory() {
         $("#cash_window .top_settings img").click();
         //выглядит странно, но без этих скроллов и проверок на видимость меню иногда кликает пока меню не видимо
-        $("#cmenu_cash").shouldBe(visible);
-        $("#cmenu_cash").$(byText("Payment History")).scrollIntoView(true).shouldBe(visible).click();
+        sleep(100);
+        $(".cmenu").$(byText("Payment History")).scrollIntoView(true).shouldBe(visible).click();
         return new PaymentHistoryPage();
     }
 
     @Step("Открыть раздел Зачем нужны монетки")
     public HowCanISpendCoinsPage openInfoAboutCoins() {
         $("#cash_window .top_settings img").click();
-        $("#cmenu_cash").shouldBe(visible);
-        $("#cmenu_cash").$(byText("How can I spend coins?")).scrollIntoView(true).shouldBe(visible).click();
+        sleep(100);
+        //  $(".cmenu").shouldBe(visible);
+        //   $x("//a[text()='How can I spend coins?']").scrollIntoView(true).click();
+        $(".cmenu").$(byText("How can I spend coins?")).scrollIntoView(true)
+                .shouldBe(visible).click();
         return new HowCanISpendCoinsPage();
     }
 

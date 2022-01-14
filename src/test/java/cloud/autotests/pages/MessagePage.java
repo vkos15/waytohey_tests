@@ -5,8 +5,7 @@ import io.qameta.allure.Step;
 
 import static cloud.autotests.config.Project.isWebMobile;
 import static com.codeborne.selenide.CollectionCondition.size;
-import static com.codeborne.selenide.Condition.attributeMatching;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -21,6 +20,7 @@ public class MessagePage {
             mess_link.scrollIntoView(true).click();
         } else
             mess_link.scrollIntoView(true).click();
+        $("#messages_window").shouldBe(visible);
     }
 
     @Step("Поиск в списке контактов")

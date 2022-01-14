@@ -6,8 +6,7 @@ import io.qameta.allure.Step;
 import static cloud.autotests.config.WaytoheyProject.configW2H;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class LoginWindow {
 
@@ -57,6 +56,7 @@ public class LoginWindow {
         this.password.setValue(password);
         submitLogin.click();
         $("#ivisitcard_info").shouldBe(visible);
+        sleep(100);
     }
 
     @Step("Логин по authKey")
