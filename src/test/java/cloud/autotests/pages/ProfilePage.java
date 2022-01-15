@@ -19,7 +19,7 @@ public class ProfilePage {
 
     @Step("Указываем статус в анкете")
     public ProfilePage changeStatus(String status) {
-        $("#mood a").scrollIntoView(true).click();
+        $("#mood a").scrollIntoView("{block: \"center\"}").click();
         $("#mood_cont").$(withText(status)).click();
         $("#mood_cont").shouldNotBe(visible);
         return this;
