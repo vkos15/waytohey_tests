@@ -38,4 +38,12 @@ public class CashTests extends TestBase {
                 .openInfoAboutCoins()
                 .checkHeaderWindowAboutCoins();
     }
+
+    @Test
+    void freeCoinsTest() {
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
+        cash.openCash()
+                .openInfoAboutFreeCoins()
+                .checkHeaderWindowAboutCoins();
+    }
 }

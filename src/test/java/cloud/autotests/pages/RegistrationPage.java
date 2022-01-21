@@ -2,8 +2,11 @@ package cloud.autotests.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Step;
+import org.openqa.selenium.Cookie;
 
+import static cloud.autotests.config.WaytoheyProject.configW2H;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
@@ -21,6 +24,7 @@ public class RegistrationPage {
     @Step("Открываем главную страницу")
     public RegistrationPage openMainPage() {
         open("");
+        WebDriverRunner.getWebDriver().manage().addCookie(new Cookie(configW2H.cookieName(), configW2H.cookieValue()));
         return this;
     }
 
@@ -79,6 +83,12 @@ public class RegistrationPage {
         return this;
     }
 
+    @Step("Нажимаем Продолжить на 2м этапе регистрации")
+    public ConfirmWindow clickContinue() {
+        $(byValue("Continue")).click();
+        return new ConfirmWindow();
+    }
+
 
     @Step("Открываем пользовательское соглашение")
     public RegistrationPage openTermsService() {
@@ -105,5 +115,6 @@ public class RegistrationPage {
     public void acceptCookies() {
         $("#gdpr_popup [value='Accept']").click();
     }
+
 
 }

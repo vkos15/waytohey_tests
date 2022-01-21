@@ -27,25 +27,36 @@ public class Cash {
         $("#cash_window").shouldNotBe(visible);
     }
 
+    @Step("Открыть меню в кошельке")
+    public void openMenu() {
+        $("#cash_window .top_settings img").click();
+        sleep(100);
+        $(".cmenu").shouldBe(visible);
+    }
+
     @Step("Открыть историю платежей")
     public PaymentHistoryPage openPaymentHistory() {
-        $("#cash_window .top_settings img").click();
-        //выглядит странно, но без этих скроллов и проверок на видимость меню иногда кликает пока меню не видимо
-        sleep(100);
-        $(".cmenu").$(byText("Payment History")).scrollIntoView(true).shouldBe(visible).click();
+        openMenu();
+        $(byText("Payment History")).scrollIntoView(true).click();
         return new PaymentHistoryPage();
     }
 
     @Step("Открыть раздел Зачем нужны монетки")
     public HowCanISpendCoinsPage openInfoAboutCoins() {
-        $("#cash_window .top_settings img").click();
-        sleep(100);
-        //  $(".cmenu").shouldBe(visible);
-        //   $x("//a[text()='How can I spend coins?']").scrollIntoView(true).click();
-        $(".cmenu").$(byText("How can I spend coins?")).scrollIntoView(true)
-                .shouldBe(visible).click();
+
+        openMenu();
+        $(byText("How can I spend coins?")).scrollIntoView(true)
+                .click();
         return new HowCanISpendCoinsPage();
     }
 
+    @Step("Открыть раздел Зачем нужны монетки")
+    public FreeCoinsPage openInfoAboutFreeCoins() {
+
+        openMenu();
+        $(byText("Free coins")).scrollIntoView(true)
+                .click();
+        return new FreeCoinsPage();
+    }
 
 }

@@ -1,5 +1,6 @@
 package cloud.autotests.tests;
 
+import cloud.autotests.pages.ConfirmWindow;
 import cloud.autotests.pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
@@ -11,6 +12,8 @@ import static cloud.autotests.testdata.TestData.nameRandom;
 public class MainPageTest extends TestBase {
 
     RegistrationPage regPage = new RegistrationPage();
+    ConfirmWindow confirmWindow = new ConfirmWindow();
+
 
     @Test
     void mainPageTestText() {
@@ -48,7 +51,9 @@ public class MainPageTest extends TestBase {
                 .fillName(nameRandom)
                 .fillEmail(emailRandom)
                 .clickSubmit();
-        // Решить насчет капчи
+        regPage.clickContinue();
+        confirmWindow.checkTextAndPicture();
+
     }
 
 }

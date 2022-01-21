@@ -53,4 +53,10 @@ public interface WaytoheyConfig extends Config {
     @Key("user_forever_offline_time")
     String userForeverOfflineTime();
 
+    @Key("cookie_name")
+    String cookieName();
+
+    @Key("cookie_value")
+    String cookieValue();
+
 }
