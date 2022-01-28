@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ConfirmWindow {
 
-    private static final String TEXT_IN_CONFIRM_WINDOW = "Please check your inbox Do not forget to check Spam folder.";
+    private static final String TEXT_IN_CONFIRM_WINDOW = "Please check your inbox. Do not forget to check Spam folder.";
 
     @Step("Проверить картинку и текст в окне")
     public ConfirmWindow checkTextAndPicture() {

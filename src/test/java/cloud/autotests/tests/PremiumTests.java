@@ -12,10 +12,21 @@ public class PremiumTests {
 
     LoginWindow loginWindow = new LoginWindow();
 
+    //Проверяем, что предлагаем скачать прилу, если обычный юзер кликает на вип
     @Test
     void offerToDownloadAppAfterClickOnPremium() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
-        premiumPage.openPremium();
+        premiumPage.tapOnPremium();
         premiumPage.checkOfferToDownloadApp();
+    }
+
+    //Проверяем, что открываются вип-настройки, если вип-юзер кликает на вип
+    @Test
+    void checkOpenVipSettingsAfterClickOnPremium() {
+        loginWindow.loginByAuthKey(configW2H.userVipAuthKey());
+        premiumPage.tapOnPremium();
+        premiumPage.checkThatVipSettingsOpen();
+
+
     }
 }

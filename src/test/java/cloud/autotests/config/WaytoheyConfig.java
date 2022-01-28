@@ -59,4 +59,14 @@ public interface WaytoheyConfig extends Config {
     @Key("cookie_value")
     String cookieValue();
 
+    @Key("user_vip_login")
+    String userVipLogin();
+
+    @Key("user_vip_pass")
+    String userVipPass();
+
+    @Key("user_vip_auth_key")
+    String userVipAuthKey();
+
+
 }
