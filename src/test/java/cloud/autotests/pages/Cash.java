@@ -50,7 +50,7 @@ public class Cash {
         return new HowCanISpendCoinsPage();
     }
 
-    @Step("Открыть раздел Зачем нужны монетки")
+    @Step("Открыть раздел Бесплатные монетки")
     public FreeCoinsPage openInfoAboutFreeCoins() {
 
         openMenu();

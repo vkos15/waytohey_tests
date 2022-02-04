@@ -1,5 +1,6 @@
 package cloud.autotests.tests;
 
+import cloud.autotests.enums.PremiumSettings;
 import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.PremiumPage;
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,19 @@ public class PremiumTests {
         premiumPage.tapOnPremium();
         premiumPage.checkThatVipSettingsOpen();
 
+    }
+
+    @Test
+    void ChangeVipSettings() {
+        loginWindow.loginByAuthKey(configW2H.userVipAuthKey());
+
+        premiumPage.tapOnPremium();
+        premiumPage.resetVipSettings();
+        premiumPage.turnOnVipSettings(PremiumSettings.IS_INVISIBLE)
+                .saveVipSettings();
+        premiumPage.checkThatVipSettingsOn(PremiumSettings.IS_INVISIBLE);
 
     }
+
+
 }

@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.WaytoheyProject.configW2H;
 
-public class GalleryTests {
+public class GalleryTests extends TestBase {
 
     GalleryPage galleryPage = new GalleryPage();
 
