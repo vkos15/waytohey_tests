@@ -13,6 +13,7 @@ public class Encounters {
 
     BottomBar bottomBar = new BottomBar();
 
+
     @Step("Открыть страницу симпатий по ссылке")
     public Encounters openEncounters() {
         open("encounters/");
@@ -45,12 +46,14 @@ public class Encounters {
         return this;
     }
 
-
-    public void openSettings() {
+    @Step("Открываем настройки симпатий")
+    public EncountersSettings openSettings() {
         $(".top_settings").click();
         $("#search_form").shouldBe(visible);
+        return new EncountersSettings();
     }
 
+    @Step("Открываем симпатии из главного меню")
     public Encounters openEncountersFromMenu() {
         if (isWebMobile())
             bottomBar.openMenu();

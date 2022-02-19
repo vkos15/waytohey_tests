@@ -30,14 +30,14 @@ public class Cash {
     @Step("Открыть меню в кошельке")
     public void openMenu() {
         $("#cash_window .top_settings img").click();
-        sleep(100);
+        sleep(1000);
         $(".cmenu").shouldBe(visible);
     }
 
     @Step("Открыть историю платежей")
     public PaymentHistoryPage openPaymentHistory() {
         openMenu();
-        $(byText("Payment History")).scrollIntoView(true).click();
+        $(byText("Payment History")).scrollIntoView("{block: \"center\"}").click();
         return new PaymentHistoryPage();
     }
 

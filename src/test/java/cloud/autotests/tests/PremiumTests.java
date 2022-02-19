@@ -26,16 +26,17 @@ public class PremiumTests {
     void checkOpenVipSettingsAfterClickOnPremium() {
         loginWindow.loginByAuthKey(configW2H.userVipAuthKey());
         premiumPage.tapOnPremium();
-        premiumPage.checkThatVipSettingsOpen();
+        premiumPage.checkListVipSettings();
 
     }
 
     @Test
+        //Изменение вип-настроек
     void ChangeVipSettings() {
         loginWindow.loginByAuthKey(configW2H.userVipAuthKey());
 
         premiumPage.tapOnPremium();
-        premiumPage.resetVipSettings();
+        premiumPage.resetVipSettings();//сначала сбросили вип-настройки
         premiumPage.turnOnVipSettings(PremiumSettings.IS_INVISIBLE)
                 .saveVipSettings();
         premiumPage.checkThatVipSettingsOn(PremiumSettings.IS_INVISIBLE);

@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class PremiumPage {
 
-
+//получаем список всех вип-настроек из enum (чтобы потом проверить)
     public List<String> getListOfPremiumSettings() {
         List<String> listOfSettings = new ArrayList<>(10);
 
@@ -42,7 +42,7 @@ public class PremiumPage {
 
 
     @Step("Проверяем, что при нажатии на плашку премиум на сайте открываются вип-настройки")
-    public void checkThatVipSettingsOpen() {
+    public void checkListVipSettings() {
         $(".window-settings h2").shouldHave(text("Premium settings"));
         $$(".settings_block label.settings_line").shouldHave(texts(getListOfPremiumSettings()));
     }
@@ -62,6 +62,7 @@ public class PremiumPage {
     }
 
     @Step("Сброс вип-настроек")
+    //если настройка включена - выключаем ее
     public void resetVipSettings() {
         for (PremiumSettings setting : PremiumSettings.values()) {
             if ($(byText(setting.getDescription())).parent().$(".checkbox").isSelected())
