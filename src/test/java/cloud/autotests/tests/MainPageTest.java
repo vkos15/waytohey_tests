@@ -2,6 +2,7 @@ package cloud.autotests.tests;
 
 import cloud.autotests.pages.ConfirmWindow;
 import cloud.autotests.pages.RegistrationPage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.WaytoheyProject.configW2H;
@@ -16,18 +17,22 @@ public class MainPageTest extends TestBase {
 
 
     @Test
+    @Tag("general")
     void mainPageTestText() {
         regPage.openMainPage()
                 .checkTextonMainPage();
     }
 
     @Test
+    @Tag("general")
     void mainPageTestLogo() {
         regPage.openMainPage()
                 .checkLogoOnMainPage();
     }
 
     @Test
+    @Tag("reg by email")
+    @Tag("w2h")
     void submitEmptyForm() {
         regPage.openMainPage()
                 .clickSubmit();
@@ -36,6 +41,8 @@ public class MainPageTest extends TestBase {
     }
 
     @Test
+    @Tag("reg by email")
+    @Tag("w2h")
     void regWithExistEmail() {
         regPage.openMainPage()
                 .fillName("test")
@@ -46,6 +53,8 @@ public class MainPageTest extends TestBase {
     }
 
     @Test
+    @Tag("reg by email")
+    @Tag("w2h")
     void regWithCorrectData() {
         regPage.openMainPage()
                 .fillName(nameRandom)

@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 
 import static cloud.autotests.testdata.TestData.userForParamTest;
 
-
+@Tag("general")
 public class ParametrizedTestsProfile extends TestBase {
 
     LoginWindow loginPage = new LoginWindow();

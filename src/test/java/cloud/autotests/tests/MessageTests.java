@@ -2,6 +2,7 @@ package cloud.autotests.tests;
 
 import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.ProfilePage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.WaytoheyProject.configW2H;
@@ -13,6 +14,7 @@ public class MessageTests extends TestBase {
     LoginWindow loginWindow = new LoginWindow();
 
     @Test
+    @Tag("general")
     //Проверяем, что окно сообщений открывается из профиля
     void openWindowMessageFromProfile() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());

@@ -5,6 +5,7 @@ import cloud.autotests.enums.Religions;
 import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.ProfilePage;
 import com.codeborne.selenide.WebDriverRunner;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.WaytoheyProject.configW2H;
@@ -17,6 +18,7 @@ public class APIAndUITestsProfile extends TestBase {
     LoginWindow loginWindow = new LoginWindow();
 
     @Test
+    @Tag("general")
     void profileOrientation() {
 
         //авторизовались
@@ -44,6 +46,7 @@ public class APIAndUITestsProfile extends TestBase {
                 .checkOrientationInProfile(Orientations.NO_MATTER);
     }
 
+    @Tag("general")
     @Test
     void profileDeleteReligion() {
 

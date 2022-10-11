@@ -6,10 +6,12 @@ import cloud.autotests.pages.Encounters;
 import cloud.autotests.pages.EncountersSettings;
 import cloud.autotests.pages.LoginWindow;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.WaytoheyProject.configW2H;
 
+@Tag("general")
 public class EncountersTests extends TestBase {
 
     Encounters encountersPage = new Encounters();

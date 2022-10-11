@@ -47,12 +47,12 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
-    /*
+
             {
-                excludeTags ''
+                excludeTags 'w2h', 'loveru'
             }
-         чтобы исключить какой-то тег, для запуска например только на love ru или w2h как вариант
-     */
+
+
     systemProperty("environment",System.getProperty("environment", "prodloveru"))
 
     if (System.getProperty("threads") != null) {
@@ -80,5 +80,25 @@ task parametrized_tests(type: Test) {
     useJUnitPlatform {
         includeTags 'parametrized_tests'
     }
+
 }
+
+task all_loveru_test(type: Test) {
+    useJUnitPlatform {
+        includeTags 'general','loveru'
+    }
+}
+
+task all_waytohey_test(type: Test) {
+    useJUnitPlatform {
+        includeTags 'general', 'w2h'
+    }
+
+}
+    task email_reg_test(type: Test) {
+        useJUnitPlatform {
+            includeTags 'reg with email'
+        }
+}
+
 

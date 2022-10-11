@@ -4,10 +4,12 @@ import cloud.autotests.pages.Cash;
 import cloud.autotests.pages.HowCanISpendCoinsPage;
 import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.PaymentHistoryPage;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.WaytoheyProject.configW2H;
 
+@Tag("general")
 public class CashTests extends TestBase {
 
     LoginWindow loginWindow = new LoginWindow();
