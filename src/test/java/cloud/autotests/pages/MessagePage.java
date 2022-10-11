@@ -43,5 +43,6 @@ public class MessagePage {
     public void checkThatChanOpen(String userLogin) {
         //проверили что в заголовке ссылка на юзера, с которым открыт диалог
         $("#chat_top .top_title").shouldHave(attributeMatching("href", ".*" + userLogin + ".*"));
+        $("#messages_window").shouldBe(visible);
     }
 }

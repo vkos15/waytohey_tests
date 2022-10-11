@@ -47,7 +47,13 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     systemProperties(System.getProperties())
     useJUnitPlatform()
-    systemProperty("environment",System.getProperty("environment", "prod"))
+    /*
+            {
+                excludeTags ''
+            }
+         чтобы исключить какой-то тег, для запуска например только на love ru или w2h как вариант
+     */
+    systemProperty("environment",System.getProperty("environment", "prodloveru"))
 
     if (System.getProperty("threads") != null) {
         systemProperties += [

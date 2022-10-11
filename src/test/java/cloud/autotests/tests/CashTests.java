@@ -36,12 +36,15 @@ public class CashTests extends TestBase {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
         cash.openCash()
                 .openInfoAboutCoins()
-                .checkHeaderWindowAboutCoins();
+                .checkHeaderWindowAboutCoins()
+                .checkContent();
+        // .checkArrows();
     }
 
     @Test
     void freeCoinsTest() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
+        cash.checkAndCloseBonusWindow();
         cash.openCash()
                 .openInfoAboutFreeCoins()
                 .checkHeaderWindowAboutCoins();

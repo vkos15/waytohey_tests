@@ -39,11 +39,10 @@ public class EncountersTests extends TestBase {
         encountersPage.openEncounters()
                 .openSettings()
                 .checkListLikeSettings();
-
     }
 
     @Test
-    @DisplayName("Проверка настроек симпатий")
+    @DisplayName("Изменение настроек симпатий")
     void encountersChangeSettings() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
         encountersPage.openEncounters()

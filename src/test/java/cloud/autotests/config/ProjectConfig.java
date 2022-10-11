@@ -19,8 +19,8 @@ public interface ProjectConfig extends Config {
     @DefaultValue("1920x1080")
     String browserSize();
 
-    @DefaultValue("iPhone X")
-        // @DefaultValue("")
+    //@DefaultValue("iPhone X")
+    @DefaultValue("")
     String browserMobileView();
 
     @DefaultValue("")

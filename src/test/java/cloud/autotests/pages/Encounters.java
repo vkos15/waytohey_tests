@@ -2,10 +2,11 @@ package cloud.autotests.pages;
 
 import io.qameta.allure.Step;
 
+import java.time.Duration;
+
 import static cloud.autotests.config.Project.isWebMobile;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -33,8 +34,6 @@ public class Encounters {
         $("#sym_photo_cont").shouldBe(visible);
         $("#name").scrollIntoView(true).shouldBe(visible);
         $("#year").scrollIntoView(true).shouldBe(visible);
-        $(byText("City:")).scrollIntoView(true).shouldBe(visible);
-        $(byText("I'm interested in:")).scrollIntoView(true).shouldBe(visible);
         return this;
     }
 
@@ -48,8 +47,8 @@ public class Encounters {
 
     @Step("Открываем настройки симпатий")
     public EncountersSettings openSettings() {
-        $(".top_settings").click();
-        $("#search_form").shouldBe(visible);
+        $(".user-menu-settings").click();
+        $("#search_form").shouldBe(visible, Duration.ofSeconds(5));
         return new EncountersSettings();
     }
 

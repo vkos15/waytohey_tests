@@ -17,4 +17,10 @@ public class OtherUserProfileTests extends TestBase {
         userProfilePage.getTimeWhenUserWasOnline(configW2H.userForeverOffline(),
                 configW2H.userForeverOfflineTime());
     }
+
+    @Test
+    void openPhotoInProfile() {
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
+
+    }
 }

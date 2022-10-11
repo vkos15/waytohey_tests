@@ -8,8 +8,7 @@ import java.util.List;
 
 import static cloud.autotests.config.Project.isWebMobile;
 import static com.codeborne.selenide.CollectionCondition.texts;
-import static com.codeborne.selenide.Condition.checked;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -38,6 +37,11 @@ public class PremiumPage {
     @Step("Проверяем, что при нажатии на плашку премиум на сайте предлагаем скачать прилу")
     public void checkOfferToDownloadApp() {
         $("#download_app").shouldHave(text("Ready to become Premium user?"));
+    }
+
+    @Step("Проверяем, что окно покупки премиум открыто")
+    public void checkPremiumWindowIsOpen() {
+        $("#pay_super_window").shouldBe(visible);
     }
 
 

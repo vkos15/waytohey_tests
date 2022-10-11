@@ -21,7 +21,7 @@ public class APIAndUITestsProfile extends TestBase {
 
         //авторизовались
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
-
+        profilePage.openProfileByClickOnAva();
         //получили cookies
         String cookie_csrf = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf").getValue();
         String cookie_mlsid = WebDriverRunner.getWebDriver().manage().getCookieNamed("MLSID").getValue();
@@ -48,7 +48,7 @@ public class APIAndUITestsProfile extends TestBase {
     void profileDeleteReligion() {
 
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
-
+        profilePage.openProfileByClickOnAva();
         //получили cookies
         String cookie_csrf = WebDriverRunner.getWebDriver().manage().getCookieNamed("csrf").getValue();
         String cookie_mlsid = WebDriverRunner.getWebDriver().manage().getCookieNamed("MLSID").getValue();

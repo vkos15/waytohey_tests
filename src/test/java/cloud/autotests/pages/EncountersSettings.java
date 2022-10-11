@@ -34,13 +34,14 @@ public class EncountersSettings {
         this.ageFrom.selectOptionByValue(ageFrom);
         this.ageTo.selectOptionByValue(ageTo);
         this.purpose.selectOption(purpose.getDescription());
-        where.selectOptionContainingText(city);
+
         //Включаем/выключаем чекбокс в зависимости от нужного значения и начального состояния
         if (nearMe) {
             if (!nearMeCheckbox.isSelected())
-                nearMeCheckbox.click();
+                nearMeCheckbox.parent().click();
         } else if (nearMeCheckbox.isSelected())
-            nearMeCheckbox.click();
+            nearMeCheckbox.parent().click();
+        where.selectOptionContainingText(city);
         $("#search_form #ieditsubmit").shouldHave(value("Save")).click();
     }
 
@@ -61,7 +62,7 @@ public class EncountersSettings {
 
     @Step("Сбрасываем настройки симпатий в состояние по умолчанию")
     public void resetLikeSettings() {
-        changeLikeSettings("Doesn't matter", "16", "80",
+        changeLikeSettings("Doesn't matter", "18", "80",
                 Purposes.NO_MATTER, "Doesn't matter", false);
     }
 

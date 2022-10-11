@@ -18,7 +18,8 @@ public class RegistrationPage {
 
     private SelenideElement textInformation = $("#staged_reg_partner");
     private SelenideElement imageLogo = $("#form_logo img");
-    private final static String TEXT_ON_MAIN_PAGE_PROD = "Free dating website for connecting singles";
+    private final static String TEXT_ON_MAIN_PAGE_PRODW2H = "WayToHey — Social network for connecting singles";
+    private final static String TEXT_ON_MAIN_PAGE_PRODLOVERU = "Dating site Love.ru";
     private final static String TEXT_ON_MAIN_PAGE_TEST = "Irish social network for connecting people";
 
     @Step("Открываем главную страницу")
@@ -30,9 +31,12 @@ public class RegistrationPage {
 
     @Step("Проверяем текст на главной")
     public RegistrationPage checkTextonMainPage() {
-        if (System.getProperty("environment").equals("prod"))
-            textInformation.shouldHave(Condition.text(TEXT_ON_MAIN_PAGE_PROD));
-        else textInformation.shouldHave(Condition.text(TEXT_ON_MAIN_PAGE_TEST));
+        if (System.getProperty("environment").equals("prodw2h"))
+            textInformation.shouldHave(Condition.text(TEXT_ON_MAIN_PAGE_PRODW2H));
+        else if (System.getProperty("environment").equals("prodloveru"))
+            textInformation.shouldHave(Condition.text(TEXT_ON_MAIN_PAGE_PRODLOVERU));
+        else
+            textInformation.shouldHave(Condition.text(TEXT_ON_MAIN_PAGE_TEST));
         return this;
     }
 

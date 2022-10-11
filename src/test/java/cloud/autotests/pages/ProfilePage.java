@@ -47,7 +47,7 @@ public class ProfilePage {
     @Step("Выбираем интерес в анкете")
     public ProfilePage selectInterest(Interests interest) {
         $("#interest").scrollIntoView(true).shouldHave(text("Interests"));
-        $("#interest a img").shouldBe(visible).click();
+        $("#interest a svg").shouldBe(visible).click();
         $("#allowed_interests").shouldBe(visible).$(byText(interest.getDescription())).click();
         $(".interest_confirm").click();
         return this;
@@ -65,7 +65,7 @@ public class ProfilePage {
 
     @Step("Заполняем ориентацию в анкете")
     public ProfilePage editOrientationInProfile(Orientations orientation) {
-        $("#aboutsex a").scrollIntoView(true).click();
+        $("#aboutsex a").scrollIntoView("{block: \"center\"}").click();
         $("#redit_orientation_options").$(byText(orientation.getDescription())).click();
         $("#ieditsubmit").click();
         return this;
@@ -82,7 +82,7 @@ public class ProfilePage {
 
     @Step("Указываем религию в анкете")
     public ProfilePage editReligionInProfile(Religions religion) {
-        $("#type a").scrollIntoView(true).click();
+        $("#type a").scrollIntoView("{block: \"center\"}").click();
         $("#redit_religion_options").$(byText(religion.getDescription())).click();
         $("#ieditsubmit").click();
         return this;
@@ -117,6 +117,16 @@ public class ProfilePage {
         String visibleTime = $("#show_info").shouldBe(visible).getOwnText();
         assertThat(visibleTime).isEqualTo(expectedTime);
         return this;
+    }
+
+    public void openPhotoByClickOnAvatar(String userLogin) {
+        open(userLogin);
+
+    }
+
+    public void openProfileByClickOnAva() {
+        $(".user-menu-ava").click();
+
     }
 
 }
