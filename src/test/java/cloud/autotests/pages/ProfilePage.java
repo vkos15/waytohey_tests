@@ -27,26 +27,26 @@ public class ProfilePage {
 
     @Step("Проверка статуса в анкете")
     public void checkStatus(String status) {
-        $("#profile_view_mood").scrollIntoView(true).shouldHave(text(status)).shouldBe(visible);
+        $("#profile_view_mood").scrollIntoView("{block: \"center\"}").shouldHave(text(status)).shouldBe(visible);
     }
 
     @Step("Заполняем раздел Обо мне")
     public ProfilePage changeAboutMe(String aboutMe) {
-        $("#aboutme a").scrollIntoView(true).shouldBe(visible).click();
-        $("textarea[name='about']").scrollIntoView(true).shouldBe(visible).setValue(aboutMe);
+        $("#aboutme a").scrollIntoView("{block: \"center\"}").shouldBe(visible).click();
+        $("textarea[name='about']").scrollIntoView("{block: \"center\"}").shouldBe(visible).setValue(aboutMe);
         $("#ieditsubmit").click();
         return this;
     }
 
     @Step("Проверяем текст в разделе Обо мне")
     public void checkAboutMe(String aboutMe) {
-        $("#profile_view_aboutme").scrollIntoView(true)
+        $("#profile_view_aboutme").scrollIntoView("{block: \"center\"}")
                 .shouldHave(text(aboutMe)).shouldBe(visible);
     }
 
     @Step("Выбираем интерес в анкете")
     public ProfilePage selectInterest(Interests interest) {
-        $("#interest").scrollIntoView(true).shouldHave(text("Interests"));
+        $("#interest").scrollIntoView("{block: \"center\"}").shouldHave(text("Interests"));
         $("#interest a svg").shouldBe(visible).click();
         $("#allowed_interests").shouldBe(visible).$(byText(interest.getDescription())).click();
         $(".interest_confirm").click();
