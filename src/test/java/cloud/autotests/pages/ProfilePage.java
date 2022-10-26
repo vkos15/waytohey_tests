@@ -119,10 +119,16 @@ public class ProfilePage {
         return this;
     }
 
+    @Step("Открываем фото юзера кликом на аватарку")
     public void openPhotoByClickOnAvatar(String userLogin) {
         open(userLogin);
-
+        $("img.photo").shouldBe(visible);
     }
+
+    public void checkPhotoSwipeByClickOnArrows(String userLogin) {
+        $("img.photo").shouldBe(visible);
+    }
+
 
     public void openProfileByClickOnAva() {
         $(".user-menu-ava").click();

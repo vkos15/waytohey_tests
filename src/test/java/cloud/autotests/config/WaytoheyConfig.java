@@ -68,5 +68,8 @@ public interface WaytoheyConfig extends Config {
     @Key("user_vip_auth_key")
     String userVipAuthKey();
 
+    @Key("user_with_photo_login")
+    String userWithPhoto();
+
 
 }

@@ -21,8 +21,9 @@ public class OtherUserProfileTests extends TestBase {
     }
 
     @Test
-    void openPhotoInProfile() {
+    void viewPhotoInProfile() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
+        userProfilePage.openPhotoByClickOnAvatar(configW2H.userWithPhoto());
 
     }
 }

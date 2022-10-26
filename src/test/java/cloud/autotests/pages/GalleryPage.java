@@ -19,7 +19,7 @@ public class GalleryPage {
         return this;
     }
 
-    @Step("Открыть окно размещения в галерее")
+    @Step("Проверка заголовка окна")
     public GalleryPage checkHeader() {
         $("#pay_gallery_window").shouldHave(text("Get featured now"));
         return this;
