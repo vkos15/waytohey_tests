@@ -24,6 +24,7 @@ public class OtherUserProfileTests extends TestBase {
     void viewPhotoInProfile() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
         userProfilePage.openPhotoByClickOnAvatar(configW2H.userWithPhoto());
+        userProfilePage.checkPhotoSwipeByClickOnArrows();
 
     }
 }

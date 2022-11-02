@@ -122,11 +122,13 @@ public class ProfilePage {
     @Step("Открываем фото юзера кликом на аватарку")
     public void openPhotoByClickOnAvatar(String userLogin) {
         open(userLogin);
-        $("img.photo").shouldBe(visible);
+        $("#visitcard_avatar").click();
+        $("#photo_win .iphoto_img").shouldBe(visible);
     }
 
-    public void checkPhotoSwipeByClickOnArrows(String userLogin) {
-        $("img.photo").shouldBe(visible);
+    @Step("Нажимаем на стрелку вправо")
+    public void checkPhotoSwipeByClickOnArrows() {
+        $("#winPhotoScrollR").click();
     }
 
 
