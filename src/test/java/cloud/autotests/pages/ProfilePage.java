@@ -127,8 +127,14 @@ public class ProfilePage {
     }
 
     @Step("Нажимаем на стрелку вправо")
-    public void checkPhotoSwipeByClickOnArrows() {
+    public void clickOnRightArrows() {
         $("#winPhotoScrollR").click();
+
+    }
+
+    @Step("Нажимаем на стрелку влево")
+    public void clickOnLeftArrows() {
+        $("#winPhotoScrollL").click();
     }
 
 
