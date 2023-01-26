@@ -18,7 +18,8 @@ public class APIAndUITestsProfile extends TestBase {
     LoginWindow loginWindow = new LoginWindow();
 
     @Test
-    @Tag("general")
+    @Tag("w2h")
+        //выбор ориентации доступен только на w2h
     void profileOrientation() {
 
         //авторизовались

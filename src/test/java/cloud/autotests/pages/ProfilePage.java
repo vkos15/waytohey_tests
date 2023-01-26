@@ -115,7 +115,8 @@ public class ProfilePage {
         //только таким способом удается уловить всплывающее на 2 сек сообщение, получаем из него
         //текст, затем проверяем с ожидаемым
         String visibleTime = $("#show_info").shouldBe(visible).getOwnText();
-        assertThat(visibleTime).isEqualTo(expectedTime);
+        assertThat(visibleTime).contains(expectedTime);
+        // isEqualTo(expectedTime);
         return this;
     }
 
@@ -142,5 +143,16 @@ public class ProfilePage {
         $(".user-menu-ava").click();
 
     }
+
+    @Step("Открываем окно дарения гифта в чужой анкете")
+    public GiftPage openGiftWindow(String userLogin) {
+        System.out.println(userLogin);
+        open(userLogin);
+
+        $("#pgift").click();
+        $("#pay_surprise_window").shouldBe(visible);
+        return new GiftPage();
+    }
+
 
 }

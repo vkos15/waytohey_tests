@@ -13,7 +13,7 @@ public class LoginWindow {
     private SelenideElement login = $("#input_login");
     private SelenideElement password = $("#input_pass");
     private SelenideElement submitLogin = $("#form_login [type='submit'].accept_btn");
-
+    Cash cashPage = new Cash();
     @Step("Открываем окно логина")
     public LoginWindow openLoginWindow() {
         open("#login");
@@ -57,6 +57,7 @@ public class LoginWindow {
         submitLogin.click();
         $("#ivisitcard_info").shouldBe(visible);
         sleep(100);
+        cashPage.checkAndCloseBonusWindow();
     }
 
     @Step("Логин по authKey")
@@ -64,6 +65,7 @@ public class LoginWindow {
         if (!System.getProperty("environment").contains("prod"))
             open(authKey, "", configW2H.authLogin(), configW2H.authPass());
         else open(authKey);
+        cashPage.checkAndCloseBonusWindow();
     }
 
 

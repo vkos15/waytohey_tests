@@ -44,6 +44,7 @@ public class EncountersTests extends TestBase {
     }
 
     @Test
+    @Tag("w2h")// don't work with love.ru - because now we can't change target
     @DisplayName("Изменение настроек симпатий")
     void encountersChangeSettings() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
