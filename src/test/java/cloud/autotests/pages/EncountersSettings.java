@@ -23,7 +23,7 @@ public class EncountersSettings {
     public void checkListLikeSettings() {
         //проверяем пункты настроек (порядок учитывается)
         $$(".settings_block .settings_line").shouldHave(texts("Looking for", "Age from",
-                "Age to", "Purpose", "Where", "Near me"));
+                "Age to", "I’m here for", "Where", "Near me"));
     }
 
     @Step("Изменяем настройки симпатий")
