@@ -1,14 +1,17 @@
 package cloud.autotests.pages;
 
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class GiftPage {
 
+    private SelenideElement giftSettings = $("#pay_surprise .settings_checkbox");
 
     @Step("Проверка заголовка окна")
     public GiftPage checkHeader() {
@@ -31,9 +34,10 @@ public class GiftPage {
         return this;
     }
 
-    @Step("Проверка настроек гифта - текст/скрытие")
-    public GiftPage checkGiftSettings() {
-        $("#pay_surprise .pay_button").shouldHave(text("Send Gift"));
+    @Step("Проверка что оотображается чекбокс с настройками гифта - скрытый/не скрытый")
+    public GiftPage checkGiftSettingsText(String textGiftSettings) {
+        assertFalse($("#gift_settings #ionly_user").shouldBe(visible).isSelected());
+        giftSettings.shouldHave(text(textGiftSettings));
         return this;
     }
 
