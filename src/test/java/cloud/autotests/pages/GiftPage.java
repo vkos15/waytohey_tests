@@ -34,9 +34,9 @@ public class GiftPage {
         return this;
     }
 
-    @Step("Проверка что оотображается чекбокс с настройками гифта - скрытый/не скрытый")
-    public GiftPage checkGiftSettingsText(String textGiftSettings) {
-        assertFalse($("#gift_settings #ionly_user").shouldBe(visible).isSelected());
+    @Step("Проверка что отображается чекбокс с настройками гифта - скрытый/не скрытый")
+    public GiftPage checkGiftSettings(String textGiftSettings) {
+        assertFalse($("#gift_settings #ionly_user").isSelected());
         giftSettings.shouldHave(text(textGiftSettings));
         return this;
     }
