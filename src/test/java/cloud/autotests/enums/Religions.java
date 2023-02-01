@@ -10,7 +10,7 @@ public enum Religions {
     ATHEISM("Atheism"),
     LIFE_ON_OTHER_PLANETS("I believe in life on other planets"),
     OTHER("Other"),
-    NO_MATTER("Rather not say");
+    NO_MATTER("Doesn't matter");
 
 
     private String description;
