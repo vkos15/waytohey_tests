@@ -2,11 +2,11 @@ package cloud.autotests.enums;
 
 public enum PremiumSettings {
 
-    ISHADOW_B("Don’t show my appearance on pages of the males"),
-    ISHADOW_G("Don’t show my appearance on pages of the females"),
+    ISHADOW_B("Hide my visiting activity from men"),
+    ISHADOW_G("Hide my visiting activity from women"),
     IS_INVISIBLE("Hide my online status"),
     HIDE_ZODIAC("Hide my zodiac sign"),
-    HIDE_VIP("Hide my Premium subscription from others"),
+    // HIDE_VIP("Hide my Premium subscription from others"),
     HIDE_VCARD("Hide my profile from unregistered users"),
     HIDE_BIG_PHOTO("Hide my profile from users without photos");
 
