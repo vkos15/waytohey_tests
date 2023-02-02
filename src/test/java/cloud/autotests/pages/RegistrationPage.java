@@ -83,7 +83,7 @@ public class RegistrationPage {
 
     @Step("Проверяем, что появилась кнопка Желаете войти в эту анкету? при указании существующего емаил")
     public RegistrationPage checkButtonExistEmail() {
-        $("#mail_dup_login").shouldHave(text("Log in to your profile"));
+        $(".mail_dup_login").shouldHave(text("Log in to your profile"));
         return this;
     }
 
