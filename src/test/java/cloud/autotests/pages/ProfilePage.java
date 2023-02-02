@@ -88,7 +88,7 @@ public class ProfilePage {
         return this;
     }
 
-    @Step("Указываем религию в анкете")
+    @Step("Проверка религии, указанной в анкете")
     public ProfilePage checkReligionInProfile(Religions religion) {
         if (!(religion == Religions.NO_MATTER))
             $("#profile_view_type").shouldHave(text("religion"))
