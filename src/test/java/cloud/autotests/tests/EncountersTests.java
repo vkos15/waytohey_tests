@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.WaytoheyProject.configW2H;
 
-@Tag("general")
+
 public class EncountersTests extends TestBase {
 
     Encounters encountersPage = new Encounters();
@@ -19,6 +19,7 @@ public class EncountersTests extends TestBase {
     EncountersSettings encountersSettings = new EncountersSettings();
     BottomBar bottomBar = new BottomBar();
 
+    @Tag("general")
     @Test
         //Проверяем, что открываются симпатии без авторизации
     void encountersPageUnauthorizedUser() {
@@ -26,6 +27,7 @@ public class EncountersTests extends TestBase {
                 .checkContentUnAuthorized();
     }
 
+    @Tag("general")
     @Test
         //Проверяем, что открываются симпатии для авторизованного
     void encountersPageAuthorizedUser() {
@@ -34,6 +36,7 @@ public class EncountersTests extends TestBase {
                 .checkContentAuthorized();
     }
 
+    @Tag("general")
     @Test
     @DisplayName("Проверка настроек симпатий")
     void encountersCheckSettings() {
