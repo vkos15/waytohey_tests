@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import static cloud.autotests.config.WaytoheyProject.configW2H;
 
 @Tag("general")
-public class PremiumTests {
+public class PremiumTests extends TestBase {
 
     PremiumPage premiumPage = new PremiumPage();
 
