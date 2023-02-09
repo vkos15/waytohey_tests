@@ -4,7 +4,7 @@ import io.qameta.allure.Step;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -70,5 +70,25 @@ public class Cash {
         if ($("#cash_bonus_info").isDisplayed())
             closeByBack();
     }
+
+    @Step("Проверить, что отображаются указанные цены")
+    public void checkPrices(String[][] prices) {
+        $("#wallet_variant").click();
+        $("#wallet_variant label:nth-child(1) input ").shouldHave(attribute("value", prices[0][0]));
+        $("#wallet_variant label:nth-child(1) ").shouldHave(text(prices[0][1]));
+
+
+        $("#wallet_variant label:nth-child(2)  input").shouldHave(attribute("value", prices[1][0]));
+        $("#wallet_variant label:nth-child(2)  ").shouldHave(text(prices[1][1]));
+
+
+        $("#wallet_variant label:nth-child(3) input ").shouldHave(attribute("value", prices[2][0]));
+        $("#wallet_variant label:nth-child(3) ").shouldHave(text(prices[2][1]));
+
+
+        $("#wallet_variant label:nth-child(4) input").shouldHave(attribute("value", prices[3][0]));
+        $("#wallet_variant label:nth-child(4) ").shouldHave(text(prices[3][1]));
+    }
+
 
 }

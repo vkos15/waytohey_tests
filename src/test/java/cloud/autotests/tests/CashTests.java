@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.WaytoheyProject.configW2H;
+import static cloud.autotests.testdata.DataPrices.price1;
+import static cloud.autotests.testdata.DataPrices.price2;
 
 @Tag("general")
 public class CashTests extends TestBase {
@@ -59,11 +61,21 @@ public class CashTests extends TestBase {
                 .checkHeaderWindowAboutCoins();
     }
 
+    @Tag("loveru")
     @Test
-    void checkPriceInMoscow() {
-        loginWindow.loginByAuthKey(configW2H.userFromMoscow());
+    void CashPrice1Test() {
+
+        loginWindow.loginByAuthKey(configW2H.userCash1());
         cash.openCash()
-                .openInfoAboutFreeCoins()
-                .checkHeaderWindowAboutCoins();
+                .checkPrices(price1);
+
+    }
+
+    @Tag("loveru")
+    @Test
+    void CashPrice2Test() {
+        loginWindow.loginByAuthKey(configW2H.userCash2());
+        cash.openCash()
+                .checkPrices(price2);
     }
 }
