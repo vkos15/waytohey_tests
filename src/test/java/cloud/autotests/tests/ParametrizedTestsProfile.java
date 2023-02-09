@@ -2,7 +2,7 @@ package cloud.autotests.tests;
 
 import cloud.autotests.enums.Interests;
 import cloud.autotests.pages.LoginWindow;
-import cloud.autotests.pages.ProfilePage;
+import cloud.autotests.pages.MyProfilePage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -17,7 +17,7 @@ import static cloud.autotests.testdata.TestData.userForParamTest;
 public class ParametrizedTestsProfile extends TestBase {
 
     LoginWindow loginPage = new LoginWindow();
-    ProfilePage profilePage = new ProfilePage();
+    MyProfilePage profilePage = new MyProfilePage();
 
     @Tag("parametrized_tests")
     @EnumSource(Interests.class)

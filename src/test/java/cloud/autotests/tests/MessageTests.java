@@ -1,7 +1,7 @@
 package cloud.autotests.tests;
 
 import cloud.autotests.pages.LoginWindow;
-import cloud.autotests.pages.ProfilePage;
+import cloud.autotests.pages.SomeoneProfilePage;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ import static cloud.autotests.testdata.TestData.userLoginChatWith;
 
 public class MessageTests extends TestBase {
 
-    ProfilePage profilePage = new ProfilePage();
+    SomeoneProfilePage profilePage = new SomeoneProfilePage();
     LoginWindow loginWindow = new LoginWindow();
 
     @Test

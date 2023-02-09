@@ -3,7 +3,7 @@ package cloud.autotests.tests;
 import cloud.autotests.enums.Orientations;
 import cloud.autotests.enums.Religions;
 import cloud.autotests.pages.LoginWindow;
-import cloud.autotests.pages.ProfilePage;
+import cloud.autotests.pages.MyProfilePage;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,7 @@ import static io.restassured.RestAssured.given;
 
 public class APIAndUITestsProfile extends TestBase {
 
-    ProfilePage profilePage = new ProfilePage();
+    MyProfilePage profilePage = new MyProfilePage();
     LoginWindow loginWindow = new LoginWindow();
 
     @Test

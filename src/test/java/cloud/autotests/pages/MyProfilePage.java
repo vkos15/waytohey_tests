@@ -11,14 +11,12 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
-import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class ProfilePage {
+public class MyProfilePage {
 
     @Step("Указываем статус в анкете")
-    public ProfilePage changeStatus(String status) {
+    public MyProfilePage changeStatus(String status) {
         $("#mood a").scrollIntoView("{block: \"center\"}").click();
         $("#mood_cont").$(withText(status)).click();
         $("#mood_cont").shouldNotBe(visible);
@@ -31,7 +29,7 @@ public class ProfilePage {
     }
 
     @Step("Заполняем раздел Обо мне")
-    public ProfilePage changeAboutMe(String aboutMe) {
+    public MyProfilePage changeAboutMe(String aboutMe) {
         $("#aboutme a").scrollIntoView("{block: \"center\"}").shouldBe(visible).click();
         $("textarea[name='about']").scrollIntoView("{block: \"center\"}").shouldBe(visible).setValue(aboutMe);
         $("#ieditsubmit").click();
@@ -45,7 +43,7 @@ public class ProfilePage {
     }
 
     @Step("Выбираем интерес в анкете")
-    public ProfilePage selectInterest(Interests interest) {
+    public MyProfilePage selectInterest(Interests interest) {
         $("#interest").scrollIntoView("{block: \"center\"}").shouldHave(text("Interests"));
         $("#interest a svg").shouldBe(visible).click();
         $("#allowed_interests").shouldBe(visible).$(byText(interest.getDescription())).click();
@@ -64,7 +62,7 @@ public class ProfilePage {
     }
 
     @Step("Заполняем ориентацию в анкете")
-    public ProfilePage editOrientationInProfile(Orientations orientation) {
+    public MyProfilePage editOrientationInProfile(Orientations orientation) {
         $("#aboutsex a").scrollIntoView("{block: \"center\"}").click();
         $("#redit_orientation_options").$(byText(orientation.getDescription())).click();
         $("#ieditsubmit").click();
@@ -81,7 +79,7 @@ public class ProfilePage {
     }
 
     @Step("Указываем религию в анкете")
-    public ProfilePage editReligionInProfile(Religions religion) {
+    public MyProfilePage editReligionInProfile(Religions religion) {
         $("#type a").scrollIntoView("{block: \"center\"}").click();
         $("#redit_religion_options").$(byText(religion.getDescription())).click();
         $("#ieditsubmit").click();
@@ -89,53 +87,15 @@ public class ProfilePage {
     }
 
     @Step("Проверка религии, указанной в анкете")
-    public ProfilePage checkReligionInProfile(Religions religion) {
+    public MyProfilePage checkReligionInProfile(Religions religion) {
         if (!(religion == Religions.NO_MATTER))
             $("#profile_view_type").shouldHave(text("religion"))
                     .shouldHave(text(religion.getDescription()))
                     .shouldBe(visible);
-         else if  ($("#profile_view_type").isDisplayed()) {
-             $("#profile_view_type").shouldNotHave(text("religion"));
+        else if ($("#profile_view_type").isDisplayed()) {
+            $("#profile_view_type").shouldNotHave(text("religion"));
         }
         return this;
-    }
-
-    @Step("Написать в чужой анкете")
-    public MessagePage openMessageFromProfile(String userLogin) {
-        System.out.println(userLogin);
-        open(userLogin);
-        $("#pmess").click();
-        return new MessagePage();
-    }
-
-    @Step("Проверка времени, когда юзер был онлайн последний раз")
-    public ProfilePage getTimeWhenUserWasOnline(String userLogin, String expectedTime) {
-        open(userLogin);
-        $("#visitcard_info .user_onoff_status").click();
-        //только таким способом удается уловить всплывающее на 2 сек сообщение, получаем из него
-        //текст, затем проверяем с ожидаемым
-        String visibleTime = $("#show_info").shouldBe(visible).getOwnText();
-        assertThat(visibleTime).contains(expectedTime);
-        // isEqualTo(expectedTime);
-        return this;
-    }
-
-    @Step("Открываем фото юзера кликом на аватарку")
-    public void openPhotoByClickOnAvatar(String userLogin) {
-        open(userLogin);
-        $("#visitcard_avatar").click();
-        $("#photo_win .iphoto_img").shouldBe(visible);
-    }
-
-    @Step("Нажимаем на стрелку вправо")
-    public void clickOnRightArrows() {
-        $("#winPhotoScrollR").click();
-
-    }
-
-    @Step("Нажимаем на стрелку влево")
-    public void clickOnLeftArrows() {
-        $("#winPhotoScrollL").click();
     }
 
 
@@ -144,15 +104,7 @@ public class ProfilePage {
 
     }
 
-    @Step("Открываем окно дарения гифта в чужой анкете")
-    public GiftPage openGiftWindow(String userLogin) {
-        System.out.println(userLogin);
-        open(userLogin);
 
-        $("#pgift").click();
-        $("#pay_surprise_window").shouldBe(visible);
-        return new GiftPage();
-    }
 
 
 }
