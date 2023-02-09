@@ -25,6 +25,14 @@ public class CashTests extends TestBase {
     }
 
     @Test
+    void menuTest() {
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
+        cash.openCash()
+                .openMenu()
+                .closeMenu();
+    }
+
+    @Test
     void paymentHistoryTest() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
         cash.openCash()
@@ -46,7 +54,14 @@ public class CashTests extends TestBase {
     @Test
     void freeCoinsTest() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
-        cash.checkAndCloseBonusWindow();
+        cash.openCash()
+                .openInfoAboutFreeCoins()
+                .checkHeaderWindowAboutCoins();
+    }
+
+    @Test
+    void checkPriceInMoscow() {
+        loginWindow.loginByAuthKey(configW2H.userFromMoscow());
         cash.openCash()
                 .openInfoAboutFreeCoins()
                 .checkHeaderWindowAboutCoins();

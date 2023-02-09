@@ -10,6 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Cash {
 
+
     @Step("Открыть Кошелек")
     public Cash openCash() {
         open("#cash");
@@ -22,19 +23,20 @@ public class Cash {
         $("#cash_window").shouldNotBe(visible);
     }
 
-    @Step("Проверка, что кошелек закрывается при выборе в меню Закрыть")
-    public void closeByMenu() {
-        $("#cash_window .top_settings img").click();
-        $("#cmenu_cash a.close").click();
-        $("#cash_window").shouldNotBe(visible);
-    }
-
     @Step("Открыть меню в кошельке")
-    public void openMenu() {
+    public Cash openMenu() {
         $("#cash_window .top_settings svg").click();
         sleep(1000);
         $(".cmenu").shouldBe(visible);
+        return this;
     }
+
+    @Step("Закрыть меню в кошельке")
+    public void closeMenu() {
+        $("#cmenu_cash a.close").click();
+        $("#cmenu_cash .cmenuBottom").shouldNotBe(visible);
+    }
+
 
     @Step("Открыть историю платежей")
     public PaymentHistoryPage openPaymentHistory() {
