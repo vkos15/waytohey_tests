@@ -98,13 +98,18 @@ public class MyProfilePage {
         return this;
     }
 
-
+    @Step("Открыть анкету нажатием на аватарку")
     public void openProfileByClickOnAva() {
         $(".user-menu-ava").click();
 
     }
 
-
+    @Step("Открыть окно загрузки фото из своего профиля ")
+    public PhotoPage openPhotoAddWindow() {
+        $("visitcard_avatar_block .add-photo").click();
+        $("#photos_add_window").shouldBe(visible);
+        return new PhotoPage();
+    }
 
 
 }
