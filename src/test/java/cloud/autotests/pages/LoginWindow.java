@@ -14,6 +14,7 @@ public class LoginWindow {
     private SelenideElement password = $("#input_pass");
     private SelenideElement submitLogin = $("#form_login [type='submit'].accept_btn");
     Cash cashPage = new Cash();
+    PhotoPage photoPage = new PhotoPage();
     @Step("Открываем окно логина")
     public LoginWindow openLoginWindow() {
         open("#login");
@@ -66,6 +67,7 @@ public class LoginWindow {
             open(authKey, "", configW2H.authLogin(), configW2H.authPass());
         else open(authKey);
         cashPage.checkAndCloseBonusWindow();
+        photoPage.closeSuggestPhotoWindowIfItOpened();
     }
 
 

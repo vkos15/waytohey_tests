@@ -16,7 +16,7 @@ public class MyProfileTests extends TestBase {
 
     @Test
     @Tag("general")
-        //Проверяем, что окно добавления фото открывается из своего профиля с фото
+       //Добавление и удаление фото в своем профиле с фото
     void addPhotoFromMyProfileWithPhoto() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
         String photo_id = myProfilePage.openPhotoAddWindow()
@@ -26,4 +26,19 @@ public class MyProfileTests extends TestBase {
         photoPage.checkCountPhotoInProfile(2);
 
     }
+
+    @Test
+    @Tag("general")
+        //Добавление и удаление фото в своем профиле без фото
+    void addPhotoFromMyProfileWithoutPhoto() {
+        loginWindow.loginByAuthKey(configW2H.userNoPhoto());
+        String photo_id = myProfilePage.openPhotoAddWindow()
+                .uploadMyPhoto("img/cat.jpg");
+        photoPage.checkCountPhotoInProfile(1);
+        photoPage.delMyPhotoFromProfile(photo_id);
+        photoPage.checkCountPhotoInProfile(0);
+
+    }
+
+
 }

@@ -44,4 +44,19 @@ public class PhotoPage {
         $("#photoDeletionForm a.block_save").shouldHave(text("Delete")).click();
     }
 
+    @Step("Нажать на крестик в окне загрузки фото")
+    public void tapOnX() {
+        $(".close_window").click();
+    }
+
+    @Step ("Нажать Пропустить в окне с предложением загрузить фото")
+    public void skipAddPhoto(){
+        $("#skipWin .block_desave").click();
+    }
+    @Step("Закрыть окно с предложением загрузить фото")
+    public void closeSuggestPhotoWindowIfItOpened() {
+        if ($("#photos_add_window_suggest").isDisplayed())
+            tapOnX();
+        skipAddPhoto();
+    }
 }

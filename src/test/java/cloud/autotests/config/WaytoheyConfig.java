@@ -77,5 +77,7 @@ public interface WaytoheyConfig extends Config {
     @Key("user_cash_2")
     String userCash2();
 
+    @Key("user_no_photo")
+    String userNoPhoto();
 
 }

@@ -106,7 +106,12 @@ public class MyProfilePage {
 
     @Step("Открыть окно загрузки фото из своего профиля ")
     public PhotoPage openPhotoAddWindow() {
-        $("#visitcard_avatar_block .add-photo").click();
+        if ($(".visitcard_nophoto").isDisplayed()){
+            $(".visitcard_nophoto").click();
+        }
+        else{
+            $("#visitcard_avatar_block .add-photo").click();
+        }
         $("#photos_add_window").shouldBe(visible);
         return new PhotoPage();
     }
