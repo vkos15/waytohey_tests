@@ -34,7 +34,7 @@ public class SomeoneProfilePage {
         System.out.println(userLogin);
         open(userLogin);
 
-        $("#pgift").click();
+        $("#gift_list_container .send_gift").click();
         $("#pay_surprise_window").shouldBe(visible);
         return new GiftPage();
     }

@@ -18,8 +18,8 @@ public class MyProfilePage {
     @Step("Указываем статус в анкете")
     public MyProfilePage changeStatus(String status) {
         $("#mood a").scrollIntoView("{block: \"center\"}").click();
-        $("#mood_cont").$(withText(status)).click();
-        $("#mood_cont").shouldNotBe(visible);
+        $(".mood_cont").$(withText(status)).click();
+        $("mood_cont").shouldNotBe(visible);
         return this;
     }
 
@@ -45,7 +45,7 @@ public class MyProfilePage {
     @Step("Выбираем интерес в анкете")
     public MyProfilePage selectInterest(Interests interest) {
         $("#interest").scrollIntoView("{block: \"center\"}").shouldHave(text("Interests"));
-        $("#interest a svg").shouldBe(visible).click();
+        $("#interest a img").shouldBe(visible).click();
         $("#allowed_interests").shouldBe(visible).$(byText(interest.getDescription())).click();
         $(".interest_confirm").click();
         return this;

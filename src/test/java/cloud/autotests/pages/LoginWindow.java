@@ -66,8 +66,9 @@ public class LoginWindow {
         if (!System.getProperty("environment").contains("prod"))
             open(authKey, "", configW2H.authLogin(), configW2H.authPass());
         else open(authKey);
-        cashPage.checkAndCloseBonusWindow();
         photoPage.closeSuggestPhotoWindowIfItOpened();
+        cashPage.checkAndCloseBonusWindow();
+
     }
 
 

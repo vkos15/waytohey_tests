@@ -24,7 +24,8 @@ public class Encounters {
     @Step("Проверка контента на странице симпатий без авторизации")
     public Encounters checkContentUnAuthorized() {
         $("#gallery_block").shouldBe(visible);
-        $("div.user-menu-header.no-auth").shouldBe(visible);
+        $("#isympathy_photo").shouldBe(visible);
+        $("#sympathy_guide").shouldBe(visible);
         return this;
     }
 

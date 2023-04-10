@@ -46,7 +46,7 @@ public class PhotoPage {
 
     @Step("Нажать на крестик в окне загрузки фото")
     public void tapOnX() {
-        $(".close_window").click();
+        $("[id*='photos_add']").$(".close_window").click();
     }
 
     @Step ("Нажать Пропустить в окне с предложением загрузить фото")
@@ -55,8 +55,9 @@ public class PhotoPage {
     }
     @Step("Закрыть окно с предложением загрузить фото")
     public void closeSuggestPhotoWindowIfItOpened() {
-        if ($("#photos_add_window_suggest").isDisplayed())
+        if ($("#photos_add_window_suggest").isDisplayed()) {
             tapOnX();
-        skipAddPhoto();
+            skipAddPhoto();
+        }
     }
 }

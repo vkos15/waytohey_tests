@@ -19,7 +19,7 @@ public class RegistrationPage {
     private SelenideElement textInformation = $("#staged_reg_partner");
     private SelenideElement imageLogo = $("#form_logo img");
     private final static String TEXT_ON_MAIN_PAGE_PRODW2H = "WayToHey — Social network for connecting singles";
-    private final static String TEXT_ON_MAIN_PAGE_PRODLOVERU = "Dating site Love.ru";
+    private final static String TEXT_ON_MAIN_PAGE_PRODLOVERU = "Dating on Love.ru";
     private final static String TEXT_ON_MAIN_PAGE_TEST = "Irish social network for connecting people";
 
     @Step("Открываем главную страницу")

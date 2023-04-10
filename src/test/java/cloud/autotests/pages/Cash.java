@@ -19,7 +19,7 @@ public class Cash {
 
     @Step("Проверка, что кошелек закрывается нажатием на стрелку назад")
     public void closeByBack() {
-        $("a.top_back").click();
+        $("#cash_window a.top_back").click();
         $("#cash_window").shouldNotBe(visible);
     }
 
