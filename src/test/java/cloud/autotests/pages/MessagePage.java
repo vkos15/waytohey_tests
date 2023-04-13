@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import static cloud.autotests.config.Project.isWebMobile;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
@@ -40,9 +41,23 @@ public class MessagePage {
     }
 
     @Step("Проверяем, что открылся диалог с заданным пользователем")
-    public void checkThatChanOpen(String userLogin) {
+    public MessagePage checkThatChanOpen(String userLogin) {
         //проверили что в заголовке ссылка на юзера, с которым открыт диалог
         $("#chat_top .top_title").shouldHave(attributeMatching("href", ".*" + userLogin + ".*"));
         $("#messages_window").shouldBe(visible);
+        return this;
+    }
+
+    @Step("Открываем меню в диалоге")
+    public MessagePage openChatSetting() {
+        $("#chat_settings").click();
+        return this;
+    }
+
+    @Step("Выбрать Сделать подарок в чате")
+    public GiftPage chooseSendGiftInMEnu() {
+
+        $(byText("Send Gift")).click();
+        return new GiftPage();
     }
 }

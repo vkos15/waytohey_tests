@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.WaytoheyProject.configW2H;
+import static cloud.autotests.testdata.TestData.userLoginChatWith;
 
 @Tag("general")
 public class GiftTests extends TestBase {
@@ -24,4 +25,17 @@ public class GiftTests extends TestBase {
                 .checkPayButton()
                 .checkGiftSettings("Hide my name and message from other users");
     }
+
+    @Test
+    @DisplayName("Окно гифтов открывается из диалога")
+    void openGiftWindow() {
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
+        profilePage.openMessageFromProfile(userLoginChatWith)
+                .checkThatChanOpen(userLoginChatWith)
+                .openChatSetting()
+                .chooseSendGiftInMEnu()
+                .checkCategories();
+    }
+
+
 }
