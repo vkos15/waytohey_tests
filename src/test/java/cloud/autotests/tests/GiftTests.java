@@ -34,7 +34,10 @@ public class GiftTests extends TestBase {
                 .checkThatChanOpen(userLoginChatWith)
                 .openChatSetting()
                 .chooseSendGiftInMEnu()
-                .checkCategories();
+                .checkHeader()
+                .checkCategories()
+                .checkPayButton();
+
     }
 
 
