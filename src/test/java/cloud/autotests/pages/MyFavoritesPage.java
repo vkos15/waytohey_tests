@@ -21,7 +21,7 @@ public class MyFavoritesPage {
             $("#menu_icon_title").click();
         }
         favoritesInMenu.scrollIntoView(true).click();
-        // $(byText("My Favorites")).click();
+        $(byText("My Favorites")).click();
         $("#header .top_title").shouldHave(text("My Favorites"));
         return this;
     }
