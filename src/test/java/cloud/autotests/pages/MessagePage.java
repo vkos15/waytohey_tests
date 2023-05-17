@@ -14,7 +14,7 @@ public class MessagePage {
 
     private SelenideElement mess_link = $("#mess_link");
 
-    @Step("Открываем окно сообщений")
+    @Step("Открыть окно сообщений")
     public void openMessageWindow() {
         if (isWebMobile()) {
             $("#menu_icon_title").click();
@@ -30,17 +30,17 @@ public class MessagePage {
                 .pressEnter();
     }
 
-    @Step("Проверяем результат поиска в списке контактов")
+    @Step("Проверить результат поиска в списке контактов")
     public void checkResultsOfSearch(String searchQuery) {
         $("#contact_list").shouldHave(text(searchQuery));
     }
 
-    @Step("Проверяем количество контактов в результатах поиска")
+    @Step("Проверить количество контактов в результатах поиска")
     public void checkCountOfUsers(int count) {
         $$("#contact_list div.contact_el").shouldHave(size(count));
     }
 
-    @Step("Проверяем, что открылся диалог с заданным пользователем")
+    @Step("Проверить, что открылся диалог с заданным пользователем")
     public MessagePage checkThatChanOpen(String userLogin) {
         //проверили что в заголовке ссылка на юзера, с которым открыт диалог
         $("#chat_top .top_title").shouldHave(attributeMatching("href", ".*" + userLogin + ".*"));
@@ -48,7 +48,7 @@ public class MessagePage {
         return this;
     }
 
-    @Step("Открываем меню в диалоге")
+    @Step("Открыть меню в диалоге")
     public MessagePage openChatSetting() {
         $("#chat_settings").click();
         return this;

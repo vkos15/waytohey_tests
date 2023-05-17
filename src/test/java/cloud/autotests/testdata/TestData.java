@@ -12,7 +12,7 @@ public class TestData {
             emailRandomFaker = faker.internet().emailAddress();
 
     public static String emailRandom = getCurrentDateInString() + "@ml.rootkid.ru";
-
+    public static String textMessageRandom = getCurrentDateInString() + " test " + faker.lorem().sentence(7);
     public static User userSuccess = new User(configW2H.userActiveLogin(), configW2H.userActivePass());
     public static User userWrongLogin = new User(configW2H.userWrongLogin(), configW2H.userWrongPass());
     public static User userForParamTest = new User(configW2H.userParametrizeTestLogin(), configW2H.userParametrizeTestPass());
