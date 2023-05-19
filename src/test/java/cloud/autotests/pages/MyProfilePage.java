@@ -106,14 +106,20 @@ public class MyProfilePage {
 
     @Step("Открыть окно загрузки фото из своего профиля ")
     public PhotoPage openPhotoAddWindow() {
-        if ($(".visitcard_nophoto").isDisplayed()){
+        if ($(".visitcard_nophoto").isDisplayed()) {
             $(".visitcard_nophoto").click();
-        }
-        else{
+        } else {
             $("#visitcard_avatar_block .add-photo").click();
         }
         $("#photos_add_window").shouldBe(visible);
         return new PhotoPage();
+    }
+
+    @Step("Нажать на карандашик для редактирования рядом с именем")
+    public SettingsPage openSettingsByClickOnPencil() {
+        $("a.profile_edit").click();
+        $("#window_title").shouldHave(text("Profile settings"));
+        return new SettingsPage();
     }
 
 
