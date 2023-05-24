@@ -80,5 +80,10 @@ public class SomeoneProfilePage {
         return this;
     }
 
+    @Step("Открыть первый гифт в анкете")
+    public GiftPage openFirstGift() {
+        $(".gift_list a").click();
+        return new GiftPage();
+    }
 
 }

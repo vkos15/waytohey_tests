@@ -8,7 +8,7 @@ import static cloud.autotests.helpers.DataUtils.getCurrentDateInString;
 
 public class TestData {
     static Faker faker = new Faker();
-    public static String nameRandom = faker.name().firstName(),
+    public static String nameRandom = faker.name().firstName() + "e",
             emailRandomFaker = faker.internet().emailAddress();
 
     public static String emailRandom = getCurrentDateInString() + "@ml.rootkid.ru";

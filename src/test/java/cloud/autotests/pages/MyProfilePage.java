@@ -72,7 +72,7 @@ public class MyProfilePage {
     @Step("Проверка ориентации, указанной в анкете")
     public void checkOrientationInProfile(Orientations orientation) {
         if (!(orientation == Orientations.NO_MATTER))
-        $("#profile_view_aboutsex").shouldHave(text(orientation.getDescription())).shouldBe(visible);
+            $("#profile_view_aboutsex").shouldHave(text(orientation.getDescription())).shouldBe(visible);
         else {
             $("#profile_view_aboutsex").shouldNotBe(visible);
         }
@@ -120,6 +120,14 @@ public class MyProfilePage {
         $("a.profile_edit").click();
         $("#window_title").shouldHave(text("Profile settings"));
         return new SettingsPage();
+    }
+
+
+    @Step("Нажать на карандашик для редактирования рядом с именем")
+    public MyProfilePage checkNameInProfile(String name) {
+
+        $("#ivisitcard_info .user_name").shouldHave(text(name));
+        return this;
     }
 
 

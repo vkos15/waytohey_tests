@@ -2,6 +2,7 @@ package cloud.autotests.tests;
 
 import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.MyProfilePage;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -15,11 +16,16 @@ public class SettingsTests extends TestBase {
     MyProfilePage myProfilePage = new MyProfilePage();
 
     @Test
+    @DisplayName("Смена имени в анкете")
     void changeNameTest() {
         loginWindow.loginByAuthKey(configW2H.userCash1());
         myProfilePage.openSettingsByClickOnPencil()
                 .changeName(nameRandom)
-                .saveSettings();
-
+                .saveSettings()
+                .closeSettings();
+        myProfilePage.openProfileByClickOnAva();
+        myProfilePage.checkNameInProfile(nameRandom)
+                .openSettingsByClickOnPencil()
+                .checkNameInSettings(nameRandom);
     }
 }
