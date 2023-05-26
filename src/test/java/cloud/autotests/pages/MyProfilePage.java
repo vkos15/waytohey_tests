@@ -130,5 +130,12 @@ public class MyProfilePage {
         return this;
     }
 
+    @Step("Проверить что отображается логин")
+    public MyProfilePage checkLoginInProfile(String login) {
+
+        $("#ivisitcard_info .vc-user-name").shouldHave(text(login)).shouldBe(visible);
+        return this;
+    }
+
 
 }

@@ -3,6 +3,7 @@ package cloud.autotests.tests;
 import cloud.autotests.pages.LoginWindow;
 import cloud.autotests.pages.MyProfilePage;
 import cloud.autotests.pages.PhotoPage;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -38,6 +39,14 @@ public class MyProfileTests extends TestBase {
         photoPage.delMyPhotoFromProfile(photo_id);
         photoPage.checkCountPhotoInProfile(0);
 
+    }
+
+    @Test
+    @Tag("general")
+    @DisplayName("Отображение логина в своей анкете")
+    void viewLoginInProfile() {
+        loginWindow.loginByAuthKey(configW2H.userNoPhoto());
+       myProfilePage.checkLoginInProfile("@alla51191");
     }
 
 
