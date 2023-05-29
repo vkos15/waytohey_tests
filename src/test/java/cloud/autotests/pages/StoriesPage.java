@@ -6,7 +6,7 @@ import io.qameta.allure.Step;
 import static cloud.autotests.config.Project.isWebMobile;
 import static com.codeborne.selenide.Condition.cssClass;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
 public class StoriesPage {
 
@@ -28,9 +28,7 @@ public class StoriesPage {
     public StoriesPage checkOpenedStories() {
 
         $("#stories-window-view").shouldBe(visible);
-        sleep(5000);
         storiesLike.shouldBe(visible).click();
-        sleep(5000);
         storiesLike.shouldHave(cssClass("sel"));
         $("#stories-window-share").shouldBe(visible).click();
         return this;
