@@ -3,11 +3,13 @@ package cloud.autotests.testdata;
 import cloud.autotests.models.User;
 import com.github.javafaker.Faker;
 
+import java.util.Locale;
+
 import static cloud.autotests.config.WaytoheyProject.configW2H;
 import static cloud.autotests.helpers.DataUtils.getCurrentDateInString;
 
 public class TestData {
-    static Faker faker = new Faker();
+    static Faker faker = new Faker(Locale.ENGLISH);
     public static String nameRandom = faker.name().firstName() + "e",
             emailRandomFaker = faker.internet().emailAddress();
     public static String cityRandom = faker.address().cityName();

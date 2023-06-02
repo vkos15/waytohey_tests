@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static cloud.autotests.config.WaytoheyProject.configW2H;
-import static cloud.autotests.testdata.TestData.cityRandom;
 import static cloud.autotests.testdata.TestData.nameRandom;
 
 @Tag("general")
@@ -35,12 +34,14 @@ public class SettingsTests extends TestBase {
     void changeCityTest() {
         loginWindow.loginByAuthKey(configW2H.userCash1());
         myProfilePage.openSettingsByClickOnPencil()
-                .changeCity(cityRandom)
+                .changeCity("London")
                 .saveSettings()
                 .closeSettings();
         myProfilePage.openProfileByClickOnAva();
         myProfilePage.openSettingsByClickOnPencil()
-                .checkCityInSettings(cityRandom);
+                .checkCityInSettings("London")
+                .changeCity("Moscow")
+                .saveSettings();
 
     }
 }
