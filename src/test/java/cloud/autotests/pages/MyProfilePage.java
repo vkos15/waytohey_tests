@@ -4,6 +4,7 @@ package cloud.autotests.pages;
 import cloud.autotests.enums.Interests;
 import cloud.autotests.enums.Orientations;
 import cloud.autotests.enums.Religions;
+import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
@@ -14,6 +15,8 @@ import static com.codeborne.selenide.Selenide.$;
 
 
 public class MyProfilePage {
+
+    SelenideElement saveButton = $(".top_confirm");
 
     @Step("Указываем статус в анкете")
     public MyProfilePage changeStatus(String status) {
@@ -65,7 +68,8 @@ public class MyProfilePage {
     public MyProfilePage editOrientationInProfile(Orientations orientation) {
         $("#aboutsex a").scrollIntoView("{block: \"center\"}").click();
         $("#redit_orientation_options").$(byText(orientation.getDescription())).click();
-        $("#ieditsubmit").click();
+        //  $("#ieditsubmit").click();
+        saveButton.click();
         return this;
     }
 
@@ -82,7 +86,7 @@ public class MyProfilePage {
     public MyProfilePage editReligionInProfile(Religions religion) {
         $("#type a").scrollIntoView("{block: \"center\"}").click();
         $("#redit_religion_options").$(byText(religion.getDescription())).click();
-        $("#ieditsubmit").click();
+        saveButton.click();
         return this;
     }
 
