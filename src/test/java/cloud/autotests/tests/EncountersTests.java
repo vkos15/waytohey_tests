@@ -47,7 +47,7 @@ public class EncountersTests extends TestBase {
     }
 
 
-    @Tag("w2h")// don't work with love.ru - because now we can't change target
+   // @Tag("w2h")// don't work with love.ru - because now we can't change target
     @Test
     @DisplayName("Изменение настроек симпатий")
     void encountersChangeSettings() {

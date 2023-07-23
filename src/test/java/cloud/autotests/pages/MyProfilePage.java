@@ -35,7 +35,7 @@ public class MyProfilePage {
     public MyProfilePage changeAboutMe(String aboutMe) {
         $("#aboutme a").scrollIntoView("{block: \"center\"}").shouldBe(visible).click();
         $("textarea[name='about']").scrollIntoView("{block: \"center\"}").shouldBe(visible).setValue(aboutMe);
-        $("#ieditsubmit").click();
+        saveButton.click();
         return this;
     }
 
@@ -50,7 +50,7 @@ public class MyProfilePage {
         $("#interest").scrollIntoView("{block: \"center\"}").shouldHave(text("Interests"));
         $("#interest a img").shouldBe(visible).click();
         $("#allowed_interests").shouldBe(visible).$(byText(interest.getDescription())).click();
-        $(".interest_confirm").click();
+        saveButton.click();
         return this;
     }
 

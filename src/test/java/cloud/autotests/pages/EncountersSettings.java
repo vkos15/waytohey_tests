@@ -7,19 +7,20 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byName;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class EncountersSettings {
 
     private SelenideElement nearMeCheckbox = $("#inearme");
-    private SelenideElement target = $(byName("target"));
-    private SelenideElement ageFrom = $(byName("age_from"));
-    private SelenideElement ageTo = $(byName("age_to"));
-    private SelenideElement purpose = $(byName("starget"));
-    private SelenideElement where = $("#sf_place");
+    private SelenideElement target = $("#search_form .settings_line");
+    private SelenideElement ageFrom = $(".from_to input");
+    private SelenideElement ageTo = $(".from_to input:nth-child(2)");
+    private SelenideElement purpose = $("#search_form .settings_line:nth-child(4)");
+    private SelenideElement where = $(byName("geo-input-value"));
 
-    @Step("Проверяем настройки симпатий")
+    @Step("Проверяем названия настроек симпатий")
     public void checkListLikeSettings() {
         //проверяем пункты настроек (порядок учитывается)
         $$(".settings_block .settings_line").shouldHave(texts("Looking for", "Age from to",
@@ -30,19 +31,20 @@ public class EncountersSettings {
     public void changeLikeSettings(String target, String ageFrom,
                                    String ageTo, Purposes purpose, String city, boolean nearMe) {
 
-        this.target.selectOption(target);
-        this.ageFrom.selectOptionByValue(ageFrom);
-        this.ageTo.selectOptionByValue(ageTo);
-        this.purpose.selectOption(purpose.getDescription());
+        $(byText(target)).click();
 
+        this.ageFrom.setValue(ageFrom);
+        this.ageTo.setValue(ageTo);
+        this.purpose.$(byText(purpose.getDescription())).click();
+        //this.purpose.shouldHave(text("Doesn't matter"));
         //Включаем/выключаем чекбокс в зависимости от нужного значения и начального состояния
         if (nearMe) {
             if (!nearMeCheckbox.isSelected())
                 nearMeCheckbox.parent().click();
         } else if (nearMeCheckbox.isSelected())
             nearMeCheckbox.parent().click();
-        where.selectOptionContainingText(city);
-        $("#search_form #ieditsubmit").shouldHave(value("Save")).click();
+        where.setValue(city);
+        $(".top_confirm").click();
     }
 
     @Step("Проверяем настройки симпатий")
@@ -50,8 +52,8 @@ public class EncountersSettings {
                                            String ageTo, Purposes purpose, String city, boolean nearMe) {
 
         this.target.shouldHave(text(target));
-        this.ageTo.shouldHave(text(ageTo));
-        this.ageFrom.shouldHave(text(ageFrom));
+        this.ageTo.shouldHave(value(ageTo));
+        this.ageFrom.shouldHave(value(ageFrom));
         this.purpose.shouldHave(text(purpose.getDescription()));
         this.where.shouldHave(text(city));
         if (nearMe)
