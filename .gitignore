@@ -39,3 +39,5 @@ target/
 /gradlew.bat
 .todo
 *.properties
+
+/src/test/java/cloud/autotests/tests/XPracticeTest.java

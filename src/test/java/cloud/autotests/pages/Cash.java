@@ -1,5 +1,6 @@
 package cloud.autotests.pages;
 
+import com.codeborne.selenide.CollectionCondition;
 import io.qameta.allure.Step;
 
 import java.time.Duration;
@@ -80,7 +81,7 @@ public class Cash {
 
         $("#wallet_variant label:nth-child(2)  input").shouldHave(attribute("value", prices[1][0]));
         $("#wallet_variant label:nth-child(2)  ").shouldHave(text(prices[1][1]));
-
+        /*
 
         $("#wallet_variant label:nth-child(3) input ").shouldHave(attribute("value", prices[2][0]));
         $("#wallet_variant label:nth-child(3) ").shouldHave(text(prices[2][1]));
@@ -88,6 +89,13 @@ public class Cash {
 
         $("#wallet_variant label:nth-child(4) input").shouldHave(attribute("value", prices[3][0]));
         $("#wallet_variant label:nth-child(4) ").shouldHave(text(prices[3][1]));
+
+         */
+    }
+
+    @Step("Проверить, что в кошельке 2 ячейки")
+    public void checkCountCells(int countThings) {
+        $$("#wallet_variant .pay-premium-plan").shouldHave(CollectionCondition.size(countThings));
     }
 
 

@@ -44,6 +44,7 @@ public class EncountersSettings {
         } else if (nearMeCheckbox.isSelected())
             nearMeCheckbox.parent().click();
         where.setValue(city);
+        $(".place_search_variant").click();
         $(".top_confirm").click();
     }
 
@@ -55,7 +56,7 @@ public class EncountersSettings {
         this.ageTo.shouldHave(value(ageTo));
         this.ageFrom.shouldHave(value(ageFrom));
         this.purpose.shouldHave(text(purpose.getDescription()));
-        this.where.shouldHave(text(city));
+        this.where.shouldHave(value(city));
         if (nearMe)
             nearMeCheckbox.shouldBe(selected);
         else

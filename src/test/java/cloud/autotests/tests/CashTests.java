@@ -78,4 +78,12 @@ public class CashTests extends TestBase {
         cash.openCash()
                 .checkPrices(price2);
     }
+
+
+    @Test
+    void CashCheckCountCellsTestInMoscow() {
+        loginWindow.loginByAuthKey(configW2H.userCash1());
+        cash.openCash()
+                .checkCountCells(2);
+    }
 }
