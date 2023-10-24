@@ -32,6 +32,10 @@ public class TestBase {
         if (Project.isVideoOn()) {
             AllureAttachments.addVideo();
         }
+        Selenide.closeWindow();
         Selenide.closeWebDriver();
+
+
     }
+
 }
