@@ -39,7 +39,7 @@ public class PhotoPage {
     public void delMyPhotoFromProfile(String photoID) {
         SelenideElement photo = $("div[data-photoid=" + "'" + photoID + "'] ");
         photo.scrollIntoView("{block: \"center\"}");
-        actions().moveToElement(photo).click($("div[data-photoid=" + "'" + photoID + "'] a")).perform();
+        actions().moveToElement(photo).click($("div[data-photoid=" + "'" + photoID + "'] a svg")).perform();
         $("a.photo-win-delete").shouldHave(text("Delete")).click();
         $("#photoDeletionForm a.block_save").shouldHave(text("Delete")).click();
     }
