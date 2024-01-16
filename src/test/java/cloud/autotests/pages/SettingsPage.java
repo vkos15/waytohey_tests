@@ -4,6 +4,8 @@ import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.value;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 
@@ -21,7 +23,8 @@ public class SettingsPage {
 
     @Step("Сохранить настройки")
     public SettingsPage saveSettings() {
-        $("#ieditsubmit").click();
+        // $("#ieditsubmit").click();
+        $(".top_confirm").click();
         return this;
     }
 
@@ -48,6 +51,15 @@ public class SettingsPage {
     @Step("Проверить город настройках")
     public SettingsPage checkCityInSettings(String currentCity) {
         inputCity.shouldHave(value(currentCity));
+        return this;
+    }
+
+
+    @Step("Выбрать ночную тему")
+    public SettingsPage selectDarkTheme() {
+        $(byText("Dark theme")).shouldBe(visible);
+        $("#new_dark_theme_enabled").click();
+
         return this;
     }
 
