@@ -44,4 +44,23 @@ public class SettingsTests extends TestBase {
                 .saveSettings();
 
     }
+
+    @Test
+    @DisplayName("Ночная тема")
+    void darkThemeTest() {
+        loginWindow.loginByAuthKey(configW2H.authKeyUser());
+        myProfilePage.openSettingsByClickOnPencil()
+                .selectDarkTheme()
+                .saveSettings()
+                .closeSettings();
+
+        myProfilePage.checkDarkTheme();
+
+      /*  myProfilePage.openProfileByClickOnAva();
+        myProfilePage.openSettingsByClickOnPencil()
+                .checkCityInSettings("London")
+                .changeCity("Moscow")
+                .saveSettings();
+*/
+    }
 }

@@ -58,9 +58,9 @@ public class SettingsPage {
     @Step("Выбрать ночную тему")
     public SettingsPage selectDarkTheme() {
         $(byText("Dark theme")).shouldBe(visible);
-        $("#new_dark_theme_enabled").click();
-
+        $("#new_dark_theme_enabled").parent().click();
         return this;
     }
+
 
 }

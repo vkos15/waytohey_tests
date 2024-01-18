@@ -141,5 +141,13 @@ public class MyProfilePage {
         return this;
     }
 
+    @Step("Проверить, что включена ночная тема ")
+    public void checkDarkTheme() {
+
+        //   $("link[id='dark_theme_css']").isEnabled();
+        $("link#dark_theme_css").isEnabled();
+
+    }
+
 
 }
