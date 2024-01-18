@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PhotoPage {
@@ -53,11 +54,21 @@ public class PhotoPage {
     public void skipAddPhoto(){
         $("#skipWin .block_desave").click();
     }
+
     @Step("Закрыть окно с предложением загрузить фото")
     public void closeSuggestPhotoWindowIfItOpened() {
         if ($("#photos_add_window_suggest").isDisplayed()) {
             tapOnX();
             skipAddPhoto();
         }
+    }
+
+    public String uploadMyVideo(String fileName) {
+
+        $(byText("Video")).click();
+        $("#profile_upload_video").uploadFromClasspath(fileName);
+        sleep(10000);
+        //  String video_id = $("#visitcard_avatar_block .secondary-photo").getAttribute("data-photoid");
+        //  return video_id;
     }
 }
