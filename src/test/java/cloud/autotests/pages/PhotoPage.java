@@ -1,10 +1,13 @@
 package cloud.autotests.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Step;
+import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byId;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -66,9 +69,18 @@ public class PhotoPage {
     public String uploadMyVideo(String fileName) {
 
         $(byText("Video")).click();
-        $("#profile_upload_video").uploadFromClasspath(fileName);
-        sleep(10000);
-        //  String video_id = $("#visitcard_avatar_block .secondary-photo").getAttribute("data-photoid");
-        //  return video_id;
+        $(byText("Video")).click();
+        //  $("#video_upload_form input#profile_upload_video").uploadFromClasspath(fileName);
+        WebDriverRunner.getWebDriver().findElement(byId("profile_upload_video")).sendKeys(fileName);
+        sleep(510000);
+        $(byText("Video")).sendKeys(Keys.ENTER);
+        //    sleep(51000);
+        // File cv = new File(fileName);
+        //  $("#profile_upload_video").uploadFile(cv);
+
+        // $("#video_upload_form .block_save").click();
+        // sleep(10000);
+        String video_id = $("#visitcard_avatar_block .secondary-photo").getAttribute("data-photoid");
+        return video_id;
     }
 }

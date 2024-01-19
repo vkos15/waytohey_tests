@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 
-
 public class SettingsPage {
     SelenideElement inputName = $("input[name='name']");
     SelenideElement inputCity = $("#settings_profile_form #search");
@@ -58,7 +57,14 @@ public class SettingsPage {
     @Step("Выбрать ночную тему")
     public SettingsPage selectDarkTheme() {
         $(byText("Dark theme")).shouldBe(visible);
-        $("#new_dark_theme_enabled").parent().click();
+        $("label[for='new_dark_theme_enabled']").click();
+        return this;
+    }
+
+    @Step("Отключить ночную тему")
+    public SettingsPage offDarkTheme() {
+        $(byText("Dark theme")).shouldBe(visible);
+        $("label[for='new_dark_theme_disabled']").click();
         return this;
     }
 

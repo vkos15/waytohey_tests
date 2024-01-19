@@ -46,21 +46,22 @@ public class SettingsTests extends TestBase {
     }
 
     @Test
-    @DisplayName("Ночная тема")
+    @DisplayName("Ночная тема - включаем и отключаем")
     void darkThemeTest() {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
         myProfilePage.openSettingsByClickOnPencil()
                 .selectDarkTheme()
                 .saveSettings()
                 .closeSettings();
-
+        myProfilePage.openProfileByClickOnAva();
         myProfilePage.checkDarkTheme();
 
-      /*  myProfilePage.openProfileByClickOnAva();
         myProfilePage.openSettingsByClickOnPencil()
-                .checkCityInSettings("London")
-                .changeCity("Moscow")
-                .saveSettings();
-*/
+                .offDarkTheme()
+                .saveSettings()
+                .closeSettings();
+        myProfilePage.openProfileByClickOnAva();
+        myProfilePage.checkThatDarkThemeisOff();
+
     }
 }
