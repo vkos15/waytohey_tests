@@ -43,14 +43,20 @@ public class MyProfileTests extends TestBase {
 
     @Test
     @Tag("general")
-        //Добавление видео{
-    void addVideo() {
+    @DisplayName("Добавление  и удаление видео-аватарки в анкете")
+    void addDelVideo() {
         loginWindow.loginByAuthKey(configW2H.userVipAuthKey());
-        String video_id = myProfilePage.openPhotoAddWindow()
-                //video/
-                //
-                .uploadMyVideo("C:\\Users\\Valentina\\IdeaProjects\\waytohey_tests\\src\\test\\resources\\img\\123.mp4");
-
+        myProfilePage.openPhotoAddWindow()
+                .uploadMyVideo("img/5.webm");
+        photoPage.tapOnX();
+        myProfilePage.openProfileByClickOnAva();
+        photoPage.checkVideoOnAva();
+        //удаление видео
+        myProfilePage.openPhotoAddWindow()
+                .deleteMyVideo();
+        photoPage.tapOnX();
+        myProfilePage.openProfileByClickOnAva();
+        photoPage.checkThatNoVideoInProfile();
     }
 
 

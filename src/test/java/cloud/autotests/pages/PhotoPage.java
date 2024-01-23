@@ -1,14 +1,12 @@
 package cloud.autotests.pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Step;
-import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.CollectionCondition.size;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byId;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PhotoPage {
@@ -66,21 +64,40 @@ public class PhotoPage {
         }
     }
 
-    public String uploadMyVideo(String fileName) {
+    @Step("Добавить видео-аватарку")
+    public void uploadMyVideo(String fileName) {
 
         $(byText("Video")).click();
-        $(byText("Video")).click();
-        //  $("#video_upload_form input#profile_upload_video").uploadFromClasspath(fileName);
-        WebDriverRunner.getWebDriver().findElement(byId("profile_upload_video")).sendKeys(fileName);
-        sleep(510000);
-        $(byText("Video")).sendKeys(Keys.ENTER);
-        //    sleep(51000);
+        $("#video_upload_form input#profile_upload_video").uploadFromClasspath(fileName);
+        $(" .video-preview").shouldBe(visible);
+        $(".video-timeline .slider").shouldBe(visible);
+        $(byText("Cancel")).shouldBe(visible);
+        $(byText("Add")).click();
+        sleep(10000);
+        // WebDriverRunner.getWebDriver().findElement(byId("profile_upload_video")).sendKeys(fileName);
+
         // File cv = new File(fileName);
         //  $("#profile_upload_video").uploadFile(cv);
-
-        // $("#video_upload_form .block_save").click();
-        // sleep(10000);
         String video_id = $("#visitcard_avatar_block .secondary-photo").getAttribute("data-photoid");
-        return video_id;
     }
+
+    @Step("Удалить видео-аватарку")
+    public void deleteMyVideo() {
+        $(byText("Video")).click();
+        $(byText("Delete video")).click();
+        $(byValue("Delete")).click();
+    }
+
+    @Step("Проверка, что на месте аватарки - видео")
+    public void checkVideoOnAva() {
+        $(" .video-avatar-block video").shouldBe(visible).shouldHave(attribute("autoplay", "true"));
+    }
+
+    @Step("Проверить, что в анкете нет видео-аватарки")
+    public void checkThatNoVideoInProfile() {
+
+        $(" .video-avatar-block video").shouldNotBe(visible);
+    }
+
+
 }
