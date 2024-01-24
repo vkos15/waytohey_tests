@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MyProfilePage {
 
-    SelenideElement saveButton = $(".top_confirm");
+    SelenideElement saveButton = $("a.close_window");
 
     @Step("Указываем статус в анкете")
     public MyProfilePage changeStatus(String status) {

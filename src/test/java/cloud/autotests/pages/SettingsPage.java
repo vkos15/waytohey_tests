@@ -20,12 +20,6 @@ public class SettingsPage {
         return this;
     }
 
-    @Step("Сохранить настройки")
-    public SettingsPage saveSettings() {
-        // $("#ieditsubmit").click();
-        $(".top_confirm").click();
-        return this;
-    }
 
     @Step("Проверить имя в настройках")
     public SettingsPage checkNameInSettings(String currentName) {

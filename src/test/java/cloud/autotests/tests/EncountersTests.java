@@ -65,5 +65,18 @@ public class EncountersTests extends TestBase {
         encountersSettings.resetLikeSettings();//после теста сбросили настройки симпатий
     }
 
+    @Test
+    @DisplayName("Дизлайк и отмена дизлайка в симпатиях")
+    void encountersDislikeTest() {
+        loginWindow.loginByAuthKey(configW2H.userVipAuthKey());
+
+        String href = encountersPage.openEncounters()
+                .clickSkip();
+        encountersPage.openEncounters()
+                .cancelSkip();
+        encountersPage.checkCurrentUserInEncounters(href);
+
+    }
+
 
 }

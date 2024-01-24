@@ -26,6 +26,7 @@ public class RegistrationPage {
     public RegistrationPage openMainPage() {
         open("");
         WebDriverRunner.getWebDriver().manage().addCookie(new Cookie(configW2H.cookieName(), configW2H.cookieValue()));
+
         return this;
     }
 

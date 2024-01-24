@@ -32,7 +32,7 @@ public class LoginTest extends TestBase {
                 .typeLogin(userWrongLogin.getLogin())
                 .typePassword(userWrongLogin.getPass())
                 .submitLoginForm();
-        loginWindow.checkErrorLoginMessage("User with that username doesn't exist");
+        loginWindow.checkErrorLoginMessage("User with this username doesn't exist");
     }
 
     @Test

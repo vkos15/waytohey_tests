@@ -21,7 +21,6 @@ public class SettingsTests extends TestBase {
         loginWindow.loginByAuthKey(configW2H.userCash1());
         myProfilePage.openSettingsByClickOnPencil()
                 .changeName(nameRandom)
-                .saveSettings()
                 .closeSettings();
         myProfilePage.openProfileByClickOnAva();
         myProfilePage.checkNameInProfile(nameRandom)
@@ -35,13 +34,12 @@ public class SettingsTests extends TestBase {
         loginWindow.loginByAuthKey(configW2H.userCash1());
         myProfilePage.openSettingsByClickOnPencil()
                 .changeCity("London")
-                .saveSettings()
                 .closeSettings();
         myProfilePage.openProfileByClickOnAva();
         myProfilePage.openSettingsByClickOnPencil()
                 .checkCityInSettings("London")
                 .changeCity("Moscow")
-                .saveSettings();
+                .closeSettings();
 
     }
 
@@ -51,14 +49,12 @@ public class SettingsTests extends TestBase {
         loginWindow.loginByAuthKey(configW2H.authKeyUser());
         myProfilePage.openSettingsByClickOnPencil()
                 .selectDarkTheme()
-                .saveSettings()
                 .closeSettings();
         myProfilePage.openProfileByClickOnAva();
         myProfilePage.checkDarkTheme();
 
         myProfilePage.openSettingsByClickOnPencil()
                 .offDarkTheme()
-                .saveSettings()
                 .closeSettings();
         myProfilePage.openProfileByClickOnAva();
         myProfilePage.checkThatDarkThemeisOff();
