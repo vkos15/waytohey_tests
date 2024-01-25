@@ -1,10 +1,7 @@
 package cloud.autotests.tests;
 
 import cloud.autotests.enums.Purposes;
-import cloud.autotests.pages.BottomBar;
-import cloud.autotests.pages.Encounters;
-import cloud.autotests.pages.EncountersSettings;
-import cloud.autotests.pages.LoginWindow;
+import cloud.autotests.pages.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,6 +12,7 @@ import static cloud.autotests.config.WaytoheyProject.configW2H;
 public class EncountersTests extends TestBase {
 
     Encounters encountersPage = new Encounters();
+    LikePage likePage = new LikePage();
     LoginWindow loginWindow = new LoginWindow();
     EncountersSettings encountersSettings = new EncountersSettings();
     BottomBar bottomBar = new BottomBar();
@@ -75,6 +73,19 @@ public class EncountersTests extends TestBase {
         encountersPage.openEncounters()
                 .cancelSkip();
         encountersPage.checkCurrentUserInEncounters(href);
+
+    }
+
+    @Test
+    @DisplayName("Лайк в симпатиях")
+    void encountersLikeTest() {
+        loginWindow.loginByAuthKey(configW2H.userVipAuthKey());
+
+        String href = encountersPage.openEncounters()
+                .clickLike();
+        likePage.openSentLikesPage()
+                .checkThatUserInSentLikesOnFisrtPlace(href);
+
 
     }
 

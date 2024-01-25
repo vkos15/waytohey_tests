@@ -67,9 +67,17 @@ public class Encounters {
     @Step("Нажать Пропустить в симпатиях")
     //возвращает ссылку на пропущенного пользователя
     public String clickSkip() {
-        //  String href = $("#name span").getAttribute("data-href");
+        String href = linkUser.getAttribute("data-href");
         $("#sympathy_btn_reject").click();
-        return linkUser.getAttribute("data-href");
+        return href;
+    }
+
+    @Step("Нажать на сердечко в симпатиях")
+    //возвращает ссылку на  пользователя, которого лайкнул
+    public String clickLike() {
+        String href = linkUser.getAttribute("data-href");
+        $("#sympathy_btn_send").click();
+        return href;
     }
 
     @Step("Отмена дизлайка в симпатиях")
