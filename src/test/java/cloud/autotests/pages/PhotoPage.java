@@ -9,6 +9,7 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.byValue;
 import static com.codeborne.selenide.Selenide.*;
 
+
 public class PhotoPage {
 
 
@@ -97,6 +98,16 @@ public class PhotoPage {
     public void checkThatNoVideoInProfile() {
 
         $(" .video-avatar-block video").shouldNotBe(visible);
+    }
+
+    @Step("Проверка правил загрузки фото")
+    public void checkRulesOfPhotos() {
+        $("#visualRules").shouldHave(text("No fake photos"))
+                .shouldHave(text("otherwise they will be deleted"))
+                .shouldBe(visible);
+
+        actions().moveToElement($(".slide")).clickAndHold().moveByOffset(300, 200).release().perform();
+
     }
 
 
