@@ -105,8 +105,21 @@ public class PhotoPage {
         $("#visualRules").shouldHave(text("No fake photos"))
                 .shouldHave(text("otherwise they will be deleted"))
                 .shouldBe(visible);
+        //свайп влево
+        $(byText("Choose your best photos")).parent().preceding(0).parent().shouldHave(cssClass("current"));
+        actions().dragAndDropBy($(byText("Choose your best photos")), -30, 0).build().perform();
+        sleep(1000);
 
-        actions().moveToElement($(".slide")).clickAndHold().moveByOffset(300, 200).release().perform();
+
+/*
+        actions().moveToElement($(byText("otherwise they will be deleted"))).clickAndHold()
+
+                .moveToElement($("#labelImg"))
+                .perform();
+        //.moveByOffset(600,0).
+
+
+*/
 
     }
 
