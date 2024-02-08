@@ -80,4 +80,29 @@ public interface WaytoheyConfig extends Config {
     @Key("user_no_photo")
     String userNoPhoto();
 
+    @Key("user_vk_login")
+    String userVKLogin();
+
+    @Key("user_vk_pass")
+    String userVKPass();
+
+    @Key("user_mail_login")
+    String userMailLogin();
+
+    @Key("user_mail_pass")
+    String userMailPass();
+
+    @Key("user_ok_login")
+    String userOKLogin();
+
+    @Key("user_ok_pass")
+    String userOKPass();
+
+    @Key("user_ya_login")
+    String userYALogin();
+
+    @Key("user_ya_pass")
+    String userYAPass();
+
+
 }

@@ -104,11 +104,18 @@ public class PhotoPage {
     public void checkRulesOfPhotos() {
         $("#visualRules").shouldHave(text("No fake photos"))
                 .shouldHave(text("otherwise they will be deleted"))
-                .shouldBe(visible);
+                .shouldHave(text("Choose your best photos"))
+                .shouldHave(text("High quality without any filters"))
+                .shouldHave(text("Follow the rules"))
+                .shouldHave(text("Nothing extra"))
+                .shouldHave(text("Your video should not have frames or captions on it"));
+
+
         //свайп влево
         $(byText("Choose your best photos")).parent().preceding(0).parent().shouldHave(cssClass("current"));
         actions().dragAndDropBy($(byText("Choose your best photos")), -30, 0).build().perform();
         sleep(1000);
+        $(byText("Choose your best photos")).parent().preceding(0).parent().shouldNotHave(cssClass("current"));
 
 
 /*

@@ -10,6 +10,7 @@ public class Project {
     }
 
     public static boolean isRemoteWebDriver() {
+        System.out.println(config.remoteDriverUrl());
         return !config.remoteDriverUrl().equals("");
     }
 

@@ -9,8 +9,7 @@ import org.openqa.selenium.Cookie;
 import static cloud.autotests.config.WaytoheyProject.configW2H;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.byValue;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -25,6 +24,7 @@ public class RegistrationPage {
     @Step("Открываем главную страницу")
     public RegistrationPage openMainPage() {
         open("");
+
         WebDriverRunner.getWebDriver().manage().addCookie(new Cookie(configW2H.cookieName(), configW2H.cookieValue()));
 
         return this;
@@ -101,8 +101,45 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage checkTermOfService() {
+        $("#window_title").shouldHave(text("Terms of Service"));
+        $("#agreement_content").shouldHave(text("Edited by: 01/Aug/2022"))
+                .shouldHave(text("General Terms"))
+                .shouldHave(text("Registration. User's personal profile."))
+                .shouldHave(text("GModification and termination of the Service"))
+                .shouldHave(text("Rights and obligations"))
+                .shouldHave(text("Purchases. Refunds"))
+                .shouldHave(text("Responsibility"))
+                .shouldHave(text("Personal data"))
+                .shouldHave(text("Rights to the protected results of intellectual activity and instruments of individualization"))
+                .shouldHave(text("Other conditions"));
+        return this;
+    }
+
+
     public RegistrationPage openPrivacyPolicy() {
         $(byText("Privacy Policy")).click();
+        return this;
+    }
+
+
+    public RegistrationPage closePrivacyTerm() {
+        $(byText("a.close_window")).click();
+        return this;
+    }
+
+    public RegistrationPage checkPrivacyPolicy() {
+        $("#window_title").shouldHave(text("Privacy policy"));
+        $("#agreement_content").shouldHave(text("Edited by: 01/Aug/2022"))
+                .shouldHave(text("GENERAL TERMS"))
+                .shouldHave(text("Principles of personal data processing"))
+                .shouldHave(text("Content of the Information that is collected and processed by the Operator"))
+                .shouldHave(text("Purposes of collecting and processing Information"))
+                .shouldHave(text("Processing Personal data"))
+                .shouldHave(text("Confidentiality of personal data"))
+                .shouldHave(text("User rights"))
+                .shouldHave(text("Data protection measures"))
+                .shouldHave(text("Concluding Provisions"));
         return this;
     }
 
@@ -119,6 +156,60 @@ public class RegistrationPage {
     @Step("Принять Cookies")
     public void acceptCookies() {
         $("#gdpr_popup [value='Accept']").click();
+    }
+
+
+    @Step("Войти через ВК ")
+    public void authVK(String log, String pass) {
+
+        $("#index_social_icons").$(byValue("VK")).click();
+        $(byName("login")).setValue(log);
+        $(byText("Continue")).click();
+        $(byName("password")).setValue(pass);
+        $(byText("Continue")).click();
+        $("button[data-test-id=continue-as-button]").click();
+    }
+
+    @Step("Нажать Другие варианты входа ")
+    public RegistrationPage clickOtherOptions() {
+        $(".social_show_more").click();
+        return this;
+    }
+
+    @Step("Войти через mail ")
+    public void authMail(String log, String pass) {
+
+        $("#index_social_icons").$(byValue("MR")).click();
+        $("#login").setValue(log);
+        $("#password").setValue(pass);
+        $("[type='submit']").click();
+    }
+
+    @Step("Войти через OK ")
+    public void authOK(String log, String pass) {
+
+        $("#index_social_icons").$(byValue("OK")).click();
+        $("#field_email").setValue(log);
+        $("#field_password").setValue(pass);
+        $("[type='submit']").click();
+    }
+
+    @Step("Нажать Продолжить на экране входа через соц сети, если анкет несколько ")
+    public void chooseFirstProfileInList() {
+        $(".accept_btn").click();
+    }
+
+    @Step("Войти через OK ")
+    public void authYA(String log, String pass) {
+
+        $("#index_social_icons").$(byValue("YA")).click();
+        $(".LoginWithPhonePage-controls").click();
+        $("#passp-field-login").setValue(log);
+        $("[id='passp:sign-in']").click();
+        $("#passp-field-passwd").setValue(pass);
+        $("[id='passp:sign-in']").click();
+
+
     }
 
 
