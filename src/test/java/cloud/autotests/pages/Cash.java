@@ -98,5 +98,10 @@ public class Cash {
         $$("#wallet_variant .pay-premium-plan").shouldHave(CollectionCondition.size(countThings));
     }
 
+    @Step("Нажать Продолжить")
+    public void clickContinue() {
+        $(".cash-container .pay_button").click();
+    }
+
 
 }
