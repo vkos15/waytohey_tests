@@ -114,7 +114,7 @@ public class MainPageTest extends TestBase {
                 .openPrivacyPolicy()
                 .checkPrivacyPolicy()
                 .closePrivacyTerm()
-                .checkTermOfService()
+                .openTermsService()
                 .checkTermOfService()
                 .closePrivacyTerm();
 

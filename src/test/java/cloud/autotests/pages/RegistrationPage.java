@@ -97,7 +97,7 @@ public class RegistrationPage {
 
     @Step("Открываем пользовательское соглашение")
     public RegistrationPage openTermsService() {
-        $(byText("Terms of Service")).click();
+        $(byText("Terms of Use")).click();
         return this;
     }
 
@@ -106,7 +106,7 @@ public class RegistrationPage {
         $("#agreement_content").shouldHave(text("Edited by: 01/Aug/2022"))
                 .shouldHave(text("General Terms"))
                 .shouldHave(text("Registration. User's personal profile."))
-                .shouldHave(text("GModification and termination of the Service"))
+                .shouldHave(text("Modification and termination of the Service"))
                 .shouldHave(text("Rights and obligations"))
                 .shouldHave(text("Purchases. Refunds"))
                 .shouldHave(text("Responsibility"))
@@ -124,13 +124,13 @@ public class RegistrationPage {
 
 
     public RegistrationPage closePrivacyTerm() {
-        $(byText("a.close_window")).click();
+        $("a.close_window").click();
         return this;
     }
 
     public RegistrationPage checkPrivacyPolicy() {
         $("#window_title").shouldHave(text("Privacy policy"));
-        $("#agreement_content").shouldHave(text("Edited by: 01/Aug/2022"))
+        $("#agreement_content").shouldHave(text("Edited by: 19/Aug/2022"))
                 .shouldHave(text("GENERAL TERMS"))
                 .shouldHave(text("Principles of personal data processing"))
                 .shouldHave(text("Content of the Information that is collected and processed by the Operator"))
