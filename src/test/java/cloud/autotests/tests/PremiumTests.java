@@ -49,6 +49,7 @@ public class PremiumTests extends TestBase {
 
         premiumPage.tapOnPremium();
         premiumPage.resetVipSettings();//сначала сбросили вип-настройки
+        premiumPage.tapOnPremium();
         premiumPage.turnOnVipSettings(PremiumSettings.IS_INVISIBLE)
                 .saveVipSettings();
         premiumPage.checkThatVipSettingsOn(PremiumSettings.IS_INVISIBLE);

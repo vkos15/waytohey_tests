@@ -108,7 +108,7 @@ public class PhotoPage {
                 .shouldHave(text("High quality without any filters"))
                 .shouldHave(text("Follow the rules"))
                 .shouldHave(text("Nothing extra"))
-                .shouldHave(text("Your video should not have frames or captions on it"));
+                .shouldHave(text("No frames or extra information"));
 
 
         //свайп влево
@@ -118,15 +118,6 @@ public class PhotoPage {
         $(byText("Choose your best photos")).parent().preceding(0).parent().shouldNotHave(cssClass("current"));
 
 
-/*
-        actions().moveToElement($(byText("otherwise they will be deleted"))).clickAndHold()
-
-                .moveToElement($("#labelImg"))
-                .perform();
-        //.moveByOffset(600,0).
-
-
-*/
 
     }
 

@@ -11,8 +11,8 @@ public enum PremiumSettings {
     HIDE_VIEWS("Hide my profile views"),
     HIDE_BIG_PHOTO("Hide my profile from users without photos"),
 
-    INCOGNITO("Incognito mode Your photos will be blurred for everyone except users on your Favorites list");
-
+    // INCOGNITO("Incognito mode Your photos will be blurred for everyone except users on your Favorites list");
+    INCOGNITO("Incognito mode");
     private final String description;
 
     //специальный конструктор

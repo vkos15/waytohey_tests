@@ -60,7 +60,7 @@ public class PremiumPage {
 
     @Step("Сохраняем вип-настройки")
     public PremiumPage saveVipSettings() {
-        $("#settings_form #ieditsubmit").click();
+        $("a.close_window").click();
         refresh(); //обновляем страничку, чтобы потом проверять, что настройки действительно сохранились
         return this;
     }
