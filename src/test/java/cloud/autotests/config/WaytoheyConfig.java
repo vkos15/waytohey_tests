@@ -104,5 +104,13 @@ public interface WaytoheyConfig extends Config {
     @Key("user_ya_pass")
     String userYAPass();
 
+    @Key("user_testcard_auth_key")
+    String userTestCardAuthKeyYoo();
+
+    @Key("test_card_yokassa")
+    String testCardYoo();
+
+    @Key("test_card_cloud")
+    String testCardClo();
 
 }

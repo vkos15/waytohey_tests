@@ -86,4 +86,34 @@ public class CashTests extends TestBase {
         cash.openCash()
                 .checkCountCells(2);
     }
+
+    @Test
+    void PayTestKassa() {
+        loginWindow.loginByAuthKey(configW2H.userTestCardAuthKeyYoo());
+        cash.openCash()
+                .clickContinue();
+        String[] cardData = configW2H.testCardYoo().split(",");
+        cash.PayTestCardNo3DYoo(cardData[0], cardData[1], cardData[2], cardData[3]);
+        cash.checkMessageAfterPaymentAction("you have successfully funded your account");
+        cash.openCash()
+                .openCardManagement()
+                .deleteCard();
+        //   cash.openMenu();
+    }
+
+    @Test
+    void PayTestCloud() {
+        loginWindow.loginByAuthKey(configW2H.userTestCardAuthKeyYoo());
+        cash.openCash()
+                .clickContinue();
+        String[] cardData = configW2H.testCardYoo().split(",");
+        cash.PayTestCardNo3DClo(cardData[0], cardData[1], cardData[2], cardData[3]);
+        cash.checkMessageAfterPaymentAction("you have successfully funded your account");
+        cash.openCash()
+                .openCardManagement()
+                .deleteCard();
+        //   cash.openMenu();
+    }
+
+
 }

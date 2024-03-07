@@ -6,6 +6,7 @@ import io.qameta.allure.Step;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -57,6 +58,15 @@ public class Cash {
         return new HowCanISpendCoinsPage();
     }
 
+    @Step("Открыть Управление картами")
+    public Cash openCardManagement() {
+        openMenu();
+        $(byText("Card management")).scrollIntoView("{block: \"center\"}").click();
+        return this;
+
+
+    }
+
     @Step("Открыть раздел Бесплатные монетки")
     public FreeCoinsPage openInfoAboutFreeCoins() {
 
@@ -101,6 +111,46 @@ public class Cash {
     @Step("Нажать Продолжить")
     public void clickContinue() {
         $(".cash-container .pay_button").click();
+    }
+
+    @Step("Выбрать способ оплаты картой")
+    public void chooseCard() {
+        $("#cmenu_paymethod").$(byText("Credit card")).click();
+    }
+
+    @Step("Оплата картой Yoo")
+    public void PayTestCardNo3DYoo(String cardNumber, String month, String year, String cv) {
+        $(byName("card-number")).sendKeys(cardNumber);
+        $(byName("expiry-month")).sendKeys(month);
+        $(byName("expiry-year")).sendKeys(year);
+        $(byName("security-code")).sendKeys(cv);
+        $("button.qa-confirm-payment-button").click();
+        $(".qa-informer-description").shouldHave(text("This is a test payment: your demo store will receive the money"));
+        $(byText("Back to the website")).click();
+    }
+
+    @Step("Оплата картой Cloud")
+    public void PayTestCardNo3DClo(String cardNumber, String month, String year, String cv) {
+        $("#card").sendKeys(cardNumber);
+        $("#date").sendKeys(month);
+        $("#date").sendKeys(year);
+        $("cvv").sendKeys(cv);
+        $(".confirm-button").click();
+        $(".button_primary").click();
+
+        $(byText("Back to the website")).click();
+    }
+
+    @Step("Проверка сообщения после оплаты")
+    public void checkMessageAfterPaymentAction(String textMessage) {
+        $("#show_info").shouldHave(text(textMessage)).shouldBe(visible);
+    }
+
+
+    @Step("Удаление карты")
+    public void deleteCard() {
+        $("a.delete-card").click();
+        $(".confirm .block_save").shouldHave(value("Ok")).click();
     }
 
 
